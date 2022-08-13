@@ -12,8 +12,8 @@ const theme = {
       main: '#D2D4D9',
     },
     common: {
-      white: '#FFFFFF',
-      light: '#EBEFF2',
+      superWhite: '#FFFFFF',
+      white: '#EBEFF2',
     },
     background: {
       main: '#EBEFF2',

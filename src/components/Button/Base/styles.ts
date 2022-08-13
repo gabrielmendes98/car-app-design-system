@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import theme from 'common/styles/theme';
 
 export interface StyledProps {
   theme: DefaultTheme;
@@ -6,6 +7,20 @@ export interface StyledProps {
   fontSize: 'md' | 'sm';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
+
+const colorMapper = {
+  primary: theme.palette.primary.main,
+  secondary: theme.palette.secondary.main,
+  tertiary: theme.palette.tertiary.main,
+  white: theme.palette.common.white,
+};
+
+const contrastMapper = {
+  primary: theme.palette.common.white,
+  secondary: theme.palette.common.white,
+  tertiary: theme.palette.primary.main,
+  white: theme.palette.primary.main,
+};
 
 const desktopButtonFontStyleMapper = {
   md: css`
@@ -29,18 +44,18 @@ const mobileButtonFontStyleMapper = {
   `,
 };
 
-const outlinedButton = ({ theme, variant }: StyledProps) =>
+const outlinedButton = ({ variant, color }: StyledProps) =>
   variant === 'outlined' &&
   css`
     background-color: transparent;
-    color: ${theme.palette.primary.main};
+    color: ${colorMapper[color]};
   `;
 
-const containedButton = ({ theme, variant }: StyledProps) =>
+const containedButton = ({ variant, color }: StyledProps) =>
   variant === 'contained' &&
   css`
-    background-color: ${theme.palette.primary.main};
-    color: ${theme.palette.common.light};
+    background-color: ${colorMapper[color]};
+    color: ${contrastMapper[color]};
   `;
 
 const buttonFontStyle = ({ theme, fontSize }: StyledProps) =>
@@ -54,13 +69,13 @@ const buttonFontStyle = ({ theme, fontSize }: StyledProps) =>
   `;
 
 export const Button = styled.button<StyledProps>(
-  ({ theme }) => css`
+  ({ theme, color }) => css`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: ${theme.spacing(1)} ${theme.spacing(9)};
-    border: 1px solid ${theme.palette.primary.main};
+    border: 1px solid ${colorMapper[color]};
     border-radius: ${theme.spacing(2.625)};
     cursor: pointer;
     height: ${theme.spacing(6)};
@@ -98,16 +113,16 @@ const iconFontStyle = ({ theme, fontSize }: StyledProps) =>
     }
   `;
 
-const outlinedIcon = ({ theme, variant }: StyledProps) =>
+const outlinedIcon = ({ variant, color }: StyledProps) =>
   variant === 'outlined' &&
   css`
-    color: ${theme.palette.primary.main};
+    color: ${colorMapper[color]};
   `;
 
-const containedIcon = ({ theme, variant }: StyledProps) =>
+const containedIcon = ({ variant, color }: StyledProps) =>
   variant === 'contained' &&
   css`
-    color: ${theme.palette.common.light};
+    color: ${contrastMapper[color]};
   `;
 
 export const StartIcon = styled.span<StyledProps>(

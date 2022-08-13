@@ -24,6 +24,14 @@ const Home = () => (
     >
       Ver carro
     </Button>
+    <Button
+      variant="outlined"
+      fontSize="md"
+      startIcon={<Icon icon="carbon:add" />}
+      color="white"
+    >
+      Ver carro
+    </Button>
   </section>
 );
 
