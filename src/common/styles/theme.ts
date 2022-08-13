@@ -17,6 +17,10 @@ const theme = {
     },
   },
   spacing: (factor: number) => `${0.5 * factor}rem`,
+  typography: {
+    fontFamily: "'Montserrat', 'Arial', 'Helvetica', 'sans-serif'",
+    htmlFontSize: 16,
+  },
 };
 
 export default theme;
