@@ -2,6 +2,7 @@ import { FC, ReactElement, ReactNode } from 'react';
 import { configure, render, RenderOptions } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { PreloadedState } from '@reduxjs/toolkit';
+import ThemeProvider from 'common/providers/Theme';
 import { AppStore, RootState, setupStore } from './store';
 
 configure({ testIdAttribute: 'id' });
@@ -21,7 +22,9 @@ const customRender = (
   }: ExtendedRenderOptions = {},
 ) => {
   const Wrapper: FC<{ children: ReactNode }> = ({ children }) => (
-    <Provider store={store}>{children}</Provider>
+    <Provider store={store}>
+      <ThemeProvider>{children}</ThemeProvider>
+    </Provider>
   );
 
   return { ...render(ui, { wrapper: Wrapper, ...renderOptions }) };

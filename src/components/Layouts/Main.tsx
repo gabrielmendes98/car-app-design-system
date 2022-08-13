@@ -21,7 +21,7 @@ const MainLayout = ({ children }: Props) => (
       </nav>
     </header>
 
-    <Main component="main">{children}</Main>
+    <Main>{children}</Main>
 
     <footer>my footer</footer>
   </Container>

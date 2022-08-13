@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Button from '@mui/material/Button';
 import {
   decrement,
   increment,
@@ -8,6 +7,7 @@ import {
   incrementIfOdd,
   selectCount,
 } from 'store/slices/counter';
+import BaseButton from 'components/Button';
 import { useAppSelector, useAppDispatch } from '../../store/hooks';
 import styles from './Counter.module.css';
 
@@ -21,14 +21,12 @@ const Counter = () => {
   return (
     <div>
       <div className={styles.row}>
-        <Button
-          className={styles.button}
+        <BaseButton
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
-          variant="contained"
         >
           -
-        </Button>
+        </BaseButton>
         <span className={styles.value} id="count-display">
           {count}
         </span>
