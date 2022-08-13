@@ -1,12 +1,18 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import theme from 'common/styles/theme';
 
-export interface StyledProps {
+interface BaseProps {
   theme: DefaultTheme;
   variant: 'outlined' | 'contained';
   fontSize: 'md' | 'sm';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
+
+export interface ButtonProps extends BaseProps {
+  shape: 'rounded' | 'squared';
+}
+
+interface IconProps extends BaseProps {}
 
 const colorMapper = {
   primary: theme.palette.primary.main,
@@ -20,6 +26,11 @@ const contrastMapper = {
   secondary: theme.palette.common.white,
   tertiary: theme.palette.primary.main,
   white: theme.palette.primary.main,
+};
+
+const shapeBorderMapper = {
+  rounded: theme.spacing(2.625),
+  squared: theme.spacing(0.5),
 };
 
 const desktopButtonFontStyleMapper = {
@@ -44,21 +55,21 @@ const mobileButtonFontStyleMapper = {
   `,
 };
 
-const outlinedButton = ({ variant, color }: StyledProps) =>
+const outlinedButton = ({ variant, color }: ButtonProps) =>
   variant === 'outlined' &&
   css`
     background-color: transparent;
     color: ${colorMapper[color]};
   `;
 
-const containedButton = ({ variant, color }: StyledProps) =>
+const containedButton = ({ variant, color }: ButtonProps) =>
   variant === 'contained' &&
   css`
     background-color: ${colorMapper[color]};
     color: ${contrastMapper[color]};
   `;
 
-const buttonFontStyle = ({ theme, fontSize }: StyledProps) =>
+const buttonFontStyle = ({ theme, fontSize }: ButtonProps) =>
   css`
     font-weight: 500;
     ${desktopButtonFontStyleMapper[fontSize]}
@@ -68,15 +79,15 @@ const buttonFontStyle = ({ theme, fontSize }: StyledProps) =>
     }
   `;
 
-export const Button = styled.button<StyledProps>(
-  ({ theme, color }) => css`
+export const Button = styled.button<ButtonProps>(
+  ({ theme, color, shape }) => css`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: ${theme.spacing(1)} ${theme.spacing(9)};
     border: 1px solid ${colorMapper[color]};
-    border-radius: ${theme.spacing(2.625)};
+    border-radius: ${shapeBorderMapper[shape]};
     cursor: pointer;
     height: ${theme.spacing(6)};
 
@@ -104,7 +115,7 @@ const mobileIconFontStyleMapper = {
   `,
 };
 
-const iconFontStyle = ({ theme, fontSize }: StyledProps) =>
+const iconFontStyle = ({ theme, fontSize }: IconProps) =>
   css`
     ${desktopIconFontStyleMapper[fontSize]}
 
@@ -113,19 +124,19 @@ const iconFontStyle = ({ theme, fontSize }: StyledProps) =>
     }
   `;
 
-const outlinedIcon = ({ variant, color }: StyledProps) =>
+const outlinedIcon = ({ variant, color }: IconProps) =>
   variant === 'outlined' &&
   css`
     color: ${colorMapper[color]};
   `;
 
-const containedIcon = ({ variant, color }: StyledProps) =>
+const containedIcon = ({ variant, color }: IconProps) =>
   variant === 'contained' &&
   css`
     color: ${contrastMapper[color]};
   `;
 
-export const StartIcon = styled.span<StyledProps>(
+export const StartIcon = styled.span<IconProps>(
   ({ theme }) => css`
     display: flex;
     justify-content: center;
