@@ -48,6 +48,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
+    "@iconify/react": "^3.2.2",
     "@types/lodash.defaultsdeep": "^4.6.7",
     "@types/styled-components": "^5.1.26",
     "eslint": "^8.20.0",

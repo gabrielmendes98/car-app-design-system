@@ -4,9 +4,10 @@ export interface StyledProps {
   theme: DefaultTheme;
   variant: 'outlined' | 'contained';
   fontSize: 'md' | 'sm';
+  color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
 
-const desktopFontStyleMapper = {
+const desktopButtonFontStyleMapper = {
   md: css`
     font-size: 1.25rem;
     line-height: 150%;
@@ -17,7 +18,7 @@ const desktopFontStyleMapper = {
   `,
 };
 
-const mobileFontStyleMapper = {
+const mobileButtonFontStyleMapper = {
   md: css`
     font-size: 1.25rem;
     line-height: 150%;
@@ -42,13 +43,13 @@ const containedButton = ({ theme, variant }: StyledProps) =>
     color: ${theme.palette.common.light};
   `;
 
-const fontStyle = ({ theme, fontSize }: StyledProps) =>
+const buttonFontStyle = ({ theme, fontSize }: StyledProps) =>
   css`
     font-weight: 500;
-    ${desktopFontStyleMapper[fontSize]}
+    ${desktopButtonFontStyleMapper[fontSize]}
 
     @media ${theme.device.mobile} {
-      ${mobileFontStyleMapper[fontSize]}
+      ${mobileButtonFontStyleMapper[fontSize]}
     }
   `;
 
@@ -66,6 +67,59 @@ export const Button = styled.button<StyledProps>(
 
     ${outlinedButton}
     ${containedButton}
-    ${fontStyle}
+    ${buttonFontStyle}
+  `,
+);
+
+const desktopIconFontStyleMapper = {
+  md: css`
+    font-size: 1.875rem;
+  `,
+  sm: css`
+    font-size: 1.5rem;
+  `,
+};
+
+const mobileIconFontStyleMapper = {
+  md: css`
+    font-size: 1.875rem;
+  `,
+  sm: css`
+    font-size: 1.5rem;
+  `,
+};
+
+const iconFontStyle = ({ theme, fontSize }: StyledProps) =>
+  css`
+    ${desktopIconFontStyleMapper[fontSize]}
+
+    @media ${theme.device.mobile} {
+      ${mobileIconFontStyleMapper[fontSize]}
+    }
+  `;
+
+const outlinedIcon = ({ theme, variant }: StyledProps) =>
+  variant === 'outlined' &&
+  css`
+    color: ${theme.palette.primary.main};
+  `;
+
+const containedIcon = ({ theme, variant }: StyledProps) =>
+  variant === 'contained' &&
+  css`
+    color: ${theme.palette.common.light};
+  `;
+
+export const StartIcon = styled.span<StyledProps>(
+  ({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: ${theme.spacing(0.875)};
+    font-size: 1.5rem;
+
+    ${outlinedIcon}
+    ${containedIcon}
+    ${iconFontStyle}
   `,
 );
