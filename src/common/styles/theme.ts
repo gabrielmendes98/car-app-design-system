@@ -1,3 +1,5 @@
+import { breakpoints } from './breakpoints';
+
 const theme = {
   palette: {
     primary: {
@@ -21,6 +23,14 @@ const theme = {
   typography: {
     fontFamily: "'Montserrat', 'Arial', 'Helvetica', 'sans-serif'",
     htmlFontSize: 16,
+  },
+  breakpoints: {
+    sm: breakpoints.sm,
+    lg: breakpoints.lg,
+  },
+  device: {
+    mobile: `(min-width: ${breakpoints.sm}px)`,
+    desktop: `(min-width: ${breakpoints.lg}px)`,
   },
 };
 

@@ -3,7 +3,30 @@ import styled, { css, DefaultTheme } from 'styled-components';
 export interface StyledProps {
   theme: DefaultTheme;
   variant: 'outlined' | 'contained';
+  fontSize: 'md' | 'sm';
 }
+
+const desktopFontStyleMapper = {
+  md: css`
+    font-size: 1.25rem;
+    line-height: 150%;
+  `,
+  sm: css`
+    font-size: 1rem;
+    line-height: 200%;
+  `,
+};
+
+const mobileFontStyleMapper = {
+  md: css`
+    font-size: 1.25rem;
+    line-height: 150%;
+  `,
+  sm: css`
+    font-size: 1rem;
+    line-height: 200%;
+  `,
+};
 
 const outlinedButton = ({ theme, variant }: StyledProps) =>
   variant === 'outlined' &&
@@ -19,6 +42,16 @@ const containedButton = ({ theme, variant }: StyledProps) =>
     color: ${theme.palette.common.light};
   `;
 
+const fontStyle = ({ theme, fontSize }: StyledProps) =>
+  css`
+    font-weight: 500;
+    ${desktopFontStyleMapper[fontSize]}
+
+    @media ${theme.device.mobile} {
+      ${mobileFontStyleMapper[fontSize]}
+    }
+  `;
+
 export const Button = styled.button<StyledProps>(
   ({ theme }) => css`
     display: flex;
@@ -29,8 +62,10 @@ export const Button = styled.button<StyledProps>(
     border: 1px solid ${theme.palette.primary.main};
     border-radius: ${theme.spacing(2.625)};
     cursor: pointer;
+    height: ${theme.spacing(6)};
 
     ${outlinedButton}
     ${containedButton}
+    ${fontStyle}
   `,
 );
