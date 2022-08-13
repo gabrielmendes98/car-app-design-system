@@ -29,8 +29,8 @@ const theme = {
     lg: breakpoints.lg,
   },
   device: {
-    mobile: `(min-width: ${breakpoints.sm}px)`,
-    desktop: `(min-width: ${breakpoints.lg}px)`,
+    mobile: `(max-width: ${breakpoints.sm}px)`,
+    desktop: `(max-width: ${breakpoints.lg}px)`,
   },
 };
 
