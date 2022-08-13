@@ -1,0 +1,100 @@
+{
+  "extends": [
+    "prettier",
+    "plugin:import/recommended",
+    "plugin:import/typescript"
+  ],
+  "plugins": ["import", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "none"
+      }
+    ],
+    "import/no-unresolved": "error",
+    "no-empty-function": [
+      "error",
+      {
+        "allow": ["arrowFunctions", "functions", "methods"]
+      }
+    ],
+    "prefer-arrow-callback": "error",
+    "arrow-spacing": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "arrow-body-style": ["error", "as-needed"],
+    "implicit-arrow-linebreak": ["off", "beside"],
+    "func-style": [
+      "error",
+      "expression",
+      {
+        "allowArrowFunctions": true
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": [
+          "external",
+          "internal",
+          "builtin",
+          "parent",
+          "sibling",
+          "index",
+          "object"
+        ],
+        "pathGroupsExcludedImportTypes": [],
+        "pathGroups": [
+          {
+            "pattern": "assets/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "common/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "store/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "pages/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "templates/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
+            "pattern": "components/**",
+            "group": "builtin",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+      }
+    ]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  }
+}
