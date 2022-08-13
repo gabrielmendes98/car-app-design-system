@@ -11,12 +11,13 @@ const theme = {
     },
     common: {
       white: '#FFFFFF',
+      light: '#EBEFF2',
     },
     background: {
       main: '#EBEFF2',
     },
   },
-  spacing: (factor: number) => `${0.5 * factor}rem`,
+  spacing: (factor: number) => `${8 * factor}px`, // use this for padding, margin, border, etc. except font-size, because it must uses rem
   typography: {
     fontFamily: "'Montserrat', 'Arial', 'Helvetica', 'sans-serif'",
     htmlFontSize: 16,
