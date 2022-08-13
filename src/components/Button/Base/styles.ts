@@ -1,5 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import theme from 'common/styles/theme';
+import { convertHexToRGBA } from 'common/styles/utils';
 
 interface BaseProps {
   theme: DefaultTheme;
@@ -60,6 +61,10 @@ const outlinedButton = ({ variant, color }: ButtonProps) =>
   css`
     background-color: transparent;
     color: ${colorMapper[color]};
+
+    &:active {
+      background-color: ${convertHexToRGBA(colorMapper[color], 0.1)};
+    }
   `;
 
 const containedButton = ({ variant, color }: ButtonProps) =>
@@ -67,6 +72,10 @@ const containedButton = ({ variant, color }: ButtonProps) =>
   css`
     background-color: ${colorMapper[color]};
     color: ${contrastMapper[color]};
+
+    &:active {
+      background-color: ${convertHexToRGBA(colorMapper[color], 0.9)};
+    }
   `;
 
 const buttonFontStyle = ({ theme, fontSize }: ButtonProps) =>
