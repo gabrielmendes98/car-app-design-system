@@ -8,6 +8,7 @@ const Home = () => (
     <Input label="test" name="name" />
     <Button>dewde</Button>
     <CarInfoCard
+      id={1}
       name="Mustang"
       year="2015"
       maxSpeed={180}
@@ -15,6 +16,7 @@ const Home = () => (
       usersRate={8}
     />
     <CarInfoCard
+      id={2}
       name="Mustang"
       year="2015"
       maxSpeed={180}

@@ -1,9 +1,11 @@
 import { Icon } from '@iconify/react';
+import { Link } from 'react-router-dom';
 import Button from 'components/Button';
 import Text from 'components/Text';
 import { Container, Image, InfoCard, ResumeList, ResumeItem } from './styles';
 
 interface Props {
+  id: number;
   imageUrl?: string;
   imageAlt?: string;
   name: string;
@@ -14,6 +16,7 @@ interface Props {
 }
 
 const CarInfoCard = ({
+  id,
   imageUrl,
   imageAlt,
   name,
@@ -53,7 +56,9 @@ const CarInfoCard = ({
         </ResumeItem>
       </ResumeList>
 
-      <Button variant="outlined">Ver carro</Button>
+      <Link to={`/cars/${id}`}>
+        <Button variant="outlined">Ver carro</Button>
+      </Link>
     </InfoCard>
   </Container>
 );

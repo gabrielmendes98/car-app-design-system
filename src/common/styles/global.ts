@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.palette.background.main};
   }
 
+  a {
+    all: unset;
+  }
+
   * {
     box-sizing: border-box;    
     padding: 0;
