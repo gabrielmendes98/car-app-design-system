@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import { ComponentPropsWithoutRef } from 'react';
 import theme from 'common/styles/theme';
 import {
   colorMapper,
@@ -6,7 +7,7 @@ import {
   convertHexToRGBA,
 } from 'common/styles/utils';
 
-interface BaseProps {
+interface BaseProps extends ComponentPropsWithoutRef<'button'> {
   theme: DefaultTheme;
   variant: 'outlined' | 'contained';
   size: 'md' | 'sm';

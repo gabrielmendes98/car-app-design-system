@@ -1,7 +1,8 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import { ComponentPropsWithoutRef } from 'react';
 import { colorMapper } from 'common/styles/utils';
 
-export interface TypographyProps {
+export interface TypographyProps extends ComponentPropsWithoutRef<'p'> {
   theme: DefaultTheme;
   variant: 'p1' | 'p2' | 'h1' | 'h2' | 'label';
   as: 'p' | 'h1' | 'h2' | 'label';

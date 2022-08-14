@@ -1,12 +1,13 @@
+import { ComponentPropsWithoutRef } from 'react';
 import Text from 'components/Text';
 import { Input, InputWrapper } from './styles';
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<'input'> {
   label: string;
   name: string;
 }
 
-const BaseInput = ({ label, name }: Props) => {
+const BaseInput = ({ label, name, ...props }: Props) => {
   console.log('input');
 
   return (
@@ -15,7 +16,7 @@ const BaseInput = ({ label, name }: Props) => {
         {label}
       </Text>
       <InputWrapper>
-        <Input name={name} id={name} />
+        <Input name={name} id={name} {...props} />
       </InputWrapper>
     </>
   );
