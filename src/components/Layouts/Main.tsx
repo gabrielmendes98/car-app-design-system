@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import Header from 'components/Header';
 import { Main, Container } from './styles';
 
 interface Props {
@@ -8,18 +8,7 @@ interface Props {
 
 const MainLayout = ({ children }: Props) => (
   <Container>
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/counter">Counter</Link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Header />
 
     <Main>{children}</Main>
 

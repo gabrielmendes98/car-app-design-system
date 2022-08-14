@@ -69,7 +69,13 @@ const containedButton = ({ variant, color }: ButtonProps) =>
     }
   `;
 
-const buttonFontStyle = ({ theme, size }: ButtonProps) =>
+export const buttonFontStyle = ({
+  theme,
+  size,
+}: {
+  theme: DefaultTheme;
+  size: BaseProps['size'];
+}) =>
   css`
     font-weight: 500;
     ${desktopButtonFontStyleMapper[size]}
