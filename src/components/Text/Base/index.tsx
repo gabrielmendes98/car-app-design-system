@@ -14,7 +14,7 @@ const variantAsMapper = {
   label: 'label' as const,
 };
 
-const Text = ({
+const BaseText = ({
   children,
   variant = 'p1',
   color = 'primary',
@@ -30,4 +30,4 @@ const Text = ({
   </Typography>
 );
 
-export default Text;
+export default BaseText;
