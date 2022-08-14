@@ -1,13 +1,21 @@
-import styled, { css } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 import { buttonFontStyle } from 'components/Button/Base/styles';
 
-export const HeaderBase = styled.header(
-  ({ theme }) => css`
+interface HeaderBaseProps {
+  theme: DefaultTheme;
+  transparent?: boolean;
+}
+
+export const HeaderBase = styled.header<HeaderBaseProps>(
+  ({ theme, transparent = false }) => css`
     height: ${theme.spacing(12)};
     display: flex;
-    background-color: ${theme.palette.primary.main};
+    background-color: ${transparent
+      ? 'transparent'
+      : theme.palette.primary.main};
     align-items: center;
     padding: 0 ${theme.spacing(3)};
+    z-index: 2;
   `,
 );
 

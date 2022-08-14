@@ -1,10 +1,11 @@
-import Button from 'components/Button';
-import CarInfoCard from 'components/CarInfoCard';
-import Input from 'components/Input';
+import BannerImage from 'assets/home-banner.png';
+import { Banner } from './styles';
 
 const Home = () => (
   <section>
-    <h1>Home page</h1>
+    <Banner>
+      <img src={BannerImage} alt="Mustang banner" />
+    </Banner>
   </section>
 );
 
