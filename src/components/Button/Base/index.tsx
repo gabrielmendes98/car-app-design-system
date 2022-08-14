@@ -2,7 +2,7 @@ import { HTMLProps, ReactNode } from 'react';
 import { Button, StartIcon, ButtonProps } from './styles';
 
 interface Props
-  extends Omit<HTMLProps<HTMLButtonElement>, 'color' | 'shape'>,
+  extends Omit<HTMLProps<HTMLButtonElement>, 'color' | 'shape' | 'size'>,
     Partial<ButtonProps> {
   children: ReactNode;
   startIcon?: ReactNode;
@@ -11,19 +11,19 @@ interface Props
 const BaseButton = ({
   children,
   variant = 'contained',
-  fontSize = 'sm',
+  size = 'sm',
   startIcon: startIconProp,
   color = 'primary',
   shape = 'rounded',
 }: Props) => {
   const startIcon = startIconProp && (
-    <StartIcon variant={variant} fontSize={fontSize} color={color}>
+    <StartIcon variant={variant} size={size} color={color}>
       {startIconProp}
     </StartIcon>
   );
 
   return (
-    <Button variant={variant} fontSize={fontSize} color={color} shape={shape}>
+    <Button variant={variant} size={size} color={color} shape={shape}>
       {startIcon}
       {children}
     </Button>

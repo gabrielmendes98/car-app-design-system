@@ -1,40 +1,12 @@
-import { Icon } from '@iconify/react';
-import Button from 'components/Button';
+import Text from 'components/Text';
 
 const Home = () => (
   <section>
     <h1>Home page</h1>
-    <Button variant="outlined" startIcon={<Icon icon="carbon:add" />}>
-      Ver carro
-    </Button>
-    <Button variant="contained" startIcon={<Icon icon="carbon:add" />}>
-      Ver carro
-    </Button>
-    <Button
-      variant="outlined"
-      fontSize="md"
-      startIcon={<Icon icon="carbon:add" />}
-    >
-      Ver carro
-    </Button>
-    <Button
-      variant="contained"
-      fontSize="md"
-      startIcon={<Icon icon="carbon:add" />}
-    >
-      Ver carro
-    </Button>
-    <div style={{ backgroundColor: 'red' }}>
-      <Button
-        variant="outlined"
-        fontSize="md"
-        startIcon={<Icon icon="carbon:add" />}
-        color="white"
-        shape="squared"
-      >
-        Ver carro
-      </Button>
-    </div>
+    <Text>paragraph</Text>
+    <Text variant="p2">paragraph</Text>
+    <Text variant="h1">paragraph</Text>
+    <Text variant="h2">paragraph</Text>
   </section>
 );
 

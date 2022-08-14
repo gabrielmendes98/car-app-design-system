@@ -1,11 +1,15 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import theme from 'common/styles/theme';
-import { convertHexToRGBA } from 'common/styles/utils';
+import {
+  colorMapper,
+  contrastMapper,
+  convertHexToRGBA,
+} from 'common/styles/utils';
 
 interface BaseProps {
   theme: DefaultTheme;
   variant: 'outlined' | 'contained';
-  fontSize: 'md' | 'sm';
+  size: 'md' | 'sm';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
 
@@ -14,20 +18,6 @@ export interface ButtonProps extends BaseProps {
 }
 
 interface IconProps extends BaseProps {}
-
-const colorMapper = {
-  primary: theme.palette.primary.main,
-  secondary: theme.palette.secondary.main,
-  tertiary: theme.palette.tertiary.main,
-  white: theme.palette.common.white,
-};
-
-const contrastMapper = {
-  primary: theme.palette.common.white,
-  secondary: theme.palette.common.white,
-  tertiary: theme.palette.primary.main,
-  white: theme.palette.primary.main,
-};
 
 const shapeBorderMapper = {
   rounded: theme.spacing(2.625),
@@ -78,13 +68,13 @@ const containedButton = ({ variant, color }: ButtonProps) =>
     }
   `;
 
-const buttonFontStyle = ({ theme, fontSize }: ButtonProps) =>
+const buttonFontStyle = ({ theme, size }: ButtonProps) =>
   css`
     font-weight: 500;
-    ${desktopButtonFontStyleMapper[fontSize]}
+    ${desktopButtonFontStyleMapper[size]}
 
     @media ${theme.device.mobile} {
-      ${mobileButtonFontStyleMapper[fontSize]}
+      ${mobileButtonFontStyleMapper[size]}
     }
   `;
 
@@ -124,12 +114,12 @@ const mobileIconFontStyleMapper = {
   `,
 };
 
-const iconFontStyle = ({ theme, fontSize }: IconProps) =>
+const iconFontStyle = ({ theme, size }: IconProps) =>
   css`
-    ${desktopIconFontStyleMapper[fontSize]}
+    ${desktopIconFontStyleMapper[size]}
 
     @media ${theme.device.mobile} {
-      ${mobileIconFontStyleMapper[fontSize]}
+      ${mobileIconFontStyleMapper[size]}
     }
   `;
 

@@ -1,3 +1,5 @@
+import theme from './theme';
+
 export const convertHexToRGBA = (hexCode: string, opacity = 1) => {
   let hex = hexCode.replace('#', '');
 
@@ -15,4 +17,18 @@ export const convertHexToRGBA = (hexCode: string, opacity = 1) => {
   }
 
   return `rgba(${r},${g},${b},${opacity})`;
+};
+
+export const colorMapper = {
+  primary: theme.palette.primary.main,
+  secondary: theme.palette.secondary.main,
+  tertiary: theme.palette.tertiary.main,
+  white: theme.palette.common.white,
+};
+
+export const contrastMapper = {
+  primary: theme.palette.common.white,
+  secondary: theme.palette.common.white,
+  tertiary: theme.palette.primary.main,
+  white: theme.palette.primary.main,
 };
