@@ -29,6 +29,10 @@ export const CardsCarousel = styled.ul(
       min-width: ${theme.spacing(35.125)};
       max-width: ${theme.spacing(35.125)};
     }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 );
 

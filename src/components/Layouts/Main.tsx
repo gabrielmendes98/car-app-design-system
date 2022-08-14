@@ -11,8 +11,6 @@ const MainLayout = ({ children }: Props) => (
     <Header />
 
     <Main>{children}</Main>
-
-    <footer>my footer</footer>
   </Container>
 );
 
