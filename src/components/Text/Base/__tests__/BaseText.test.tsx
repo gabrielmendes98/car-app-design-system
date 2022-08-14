@@ -23,7 +23,7 @@ it('should render h2 element when h2 variant', () => {
   expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
 });
 
-it('should render h2 element when h2 variant', () => {
+it('should render label element when label variant', () => {
   render(<Text variant="label">label</Text>);
   expect(document.querySelector('label')).toBeInTheDocument();
 });
