@@ -6,6 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  flex: 1;
+  max-width: 100%;
 `;
 
 export const Image = styled.div(
@@ -28,7 +30,6 @@ export const InfoCard = styled.div(
     justify-content: center;
     align-items: center;
     padding: ${theme.spacing(3)} ${theme.spacing(4)};
-    max-width: ${theme.spacing(35.125)};
     border: 1px solid ${theme.palette.primary.main};
     border-radius: ${theme.spacing(3)};
   `,

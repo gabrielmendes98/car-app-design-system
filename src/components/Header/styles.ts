@@ -1,4 +1,5 @@
 import styled, { css, DefaultTheme } from 'styled-components';
+import { HEADER_HEIGHT } from 'common/constants';
 import { buttonFontStyle } from 'components/Button/Base/styles';
 
 interface HeaderBaseProps {
@@ -8,7 +9,7 @@ interface HeaderBaseProps {
 
 export const HeaderBase = styled.header<HeaderBaseProps>(
   ({ theme, transparent = false }) => css`
-    height: ${theme.spacing(12)};
+    height: ${HEADER_HEIGHT};
     display: flex;
     background-color: ${transparent
       ? 'transparent'

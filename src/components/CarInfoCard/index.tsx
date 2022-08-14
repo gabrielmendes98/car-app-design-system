@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import Text from 'components/Text';
 import { Container, Image, InfoCard, ResumeList, ResumeItem } from './styles';
 
-interface Props {
+export interface CarInfoCardProps {
   id: number;
   imageUrl?: string;
   imageAlt?: string;
@@ -24,7 +24,7 @@ const CarInfoCard = ({
   maxSpeed,
   economyRate,
   usersRate,
-}: Props) => (
+}: CarInfoCardProps) => (
   <Container>
     {imageUrl && imageAlt && (
       <Image>

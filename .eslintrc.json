@@ -47,6 +47,11 @@
         "pathGroupsExcludedImportTypes": [],
         "pathGroups": [
           {
+            "pattern": "api/**",
+            "group": "builtin",
+            "position": "after"
+          },
+          {
             "pattern": "assets/**",
             "group": "builtin",
             "position": "after"

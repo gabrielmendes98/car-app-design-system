@@ -1,11 +1,10 @@
 import styled from 'styled-components';
+import { MAIN_PADDING } from 'common/constants';
 
 export const Main = styled.main`
   flex: 1;
-  padding-left: ${({ theme }) => theme.spacing(2)};
-  padding-right: ${({ theme }) => theme.spacing(2)};
-  margin-top: ${({ theme }) => theme.spacing(6)};
-  margin-bottom: ${({ theme }) => theme.spacing(6)};
+  padding-left: ${MAIN_PADDING};
+  padding-right: ${MAIN_PADDING};
 `;
 
 export const Container = styled.div`
