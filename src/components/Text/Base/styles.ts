@@ -4,13 +4,21 @@ import { colorMapper } from 'common/styles/utils';
 
 export interface TypographyProps extends ComponentPropsWithoutRef<'p'> {
   theme: DefaultTheme;
-  variant: 'p1' | 'p2' | 'h1' | 'h2' | 'label';
+  variant: 'md' | 'sm' | 'h1' | 'h2' | 'label';
   as: 'p' | 'h1' | 'h2' | 'label';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
+  textAlign:
+    | 'start'
+    | 'end'
+    | 'left'
+    | 'right'
+    | 'center'
+    | 'justify'
+    | 'match-parent';
 }
 
 const paragraph1FontStyle = ({ theme, variant }: TypographyProps) =>
-  variant === 'p1' &&
+  variant === 'md' &&
   css`
     font-weight: 300;
     font-size: 1.25rem;
@@ -24,7 +32,7 @@ const paragraph1FontStyle = ({ theme, variant }: TypographyProps) =>
   `;
 
 const paragraph2FontStyle = ({ theme, variant }: TypographyProps) =>
-  (variant === 'p2' || variant === 'label') &&
+  (variant === 'sm' || variant === 'label') &&
   css`
     font-weight: 400;
     font-size: 1rem;
@@ -66,7 +74,8 @@ const h2FontStyle = ({ theme, variant }: TypographyProps) =>
   `;
 
 export const Typography = styled.p<TypographyProps>(
-  ({ color }) => css`
+  ({ color, textAlign }) => css`
+    text-align: ${textAlign};
     color: ${colorMapper[color]};
     ${paragraph1FontStyle};
     ${paragraph2FontStyle};

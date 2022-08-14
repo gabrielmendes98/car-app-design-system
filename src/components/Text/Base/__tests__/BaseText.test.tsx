@@ -3,13 +3,13 @@ import Text from '../index';
 
 // em um design system real, testaria as variantes de estilos, mas por falta de tempo, neste desafio, dei preferencia a outras coisas mais importantes
 
-it('should render p element when p1 variant', () => {
-  render(<Text variant="p1">text</Text>);
+it('should render p element when md variant', () => {
+  render(<Text variant="md">text</Text>);
   expect(document.querySelector('p')).toBeInTheDocument();
 });
 
-it('should render p element when p2 variant', () => {
-  render(<Text variant="p2">text</Text>);
+it('should render p element when sm variant', () => {
+  render(<Text variant="sm">text</Text>);
   expect(document.querySelector('p')).toBeInTheDocument();
 });
 

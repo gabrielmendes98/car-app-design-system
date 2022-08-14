@@ -7,8 +7,8 @@ interface Props extends Partial<Omit<TypographyProps, 'as'>> {
 }
 
 const variantAsMapper = {
-  p1: 'p' as const,
-  p2: 'p' as const,
+  md: 'p' as const,
+  sm: 'p' as const,
   h1: 'h1' as const,
   h2: 'h2' as const,
   label: 'label' as const,
@@ -16,14 +16,16 @@ const variantAsMapper = {
 
 const BaseText = ({
   children,
-  variant = 'p1',
+  variant = 'md',
   color = 'primary',
+  textAlign = 'start',
   ...props
 }: Props) => (
   <Typography
     variant={variant}
     as={variantAsMapper[variant]}
     color={color}
+    textAlign={textAlign}
     {...props}
   >
     {children}
