@@ -3,8 +3,8 @@ import { colorMapper } from 'common/styles/utils';
 
 export interface TypographyProps {
   theme: DefaultTheme;
-  variant: 'p1' | 'p2' | 'h1' | 'h2';
-  as: 'p' | 'h1' | 'h2';
+  variant: 'p1' | 'p2' | 'h1' | 'h2' | 'label';
+  as: 'p' | 'h1' | 'h2' | 'label';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
 
@@ -23,7 +23,7 @@ const paragraph1FontStyle = ({ theme, variant }: TypographyProps) =>
   `;
 
 const paragraph2FontStyle = ({ theme, variant }: TypographyProps) =>
-  variant === 'p2' &&
+  (variant === 'p2' || variant === 'label') &&
   css`
     font-weight: 400;
     font-size: 1rem;

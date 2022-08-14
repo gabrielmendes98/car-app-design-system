@@ -22,3 +22,8 @@ it('should render h2 element when h2 variant', () => {
   render(<Text variant="h2">text</Text>);
   expect(screen.getByRole('heading', { level: 2 })).toBeInTheDocument();
 });
+
+it('should render h2 element when h2 variant', () => {
+  render(<Text variant="label">label</Text>);
+  expect(document.querySelector('label')).toBeInTheDocument();
+});

@@ -1,12 +1,9 @@
-import Text from 'components/Text';
+import Input from 'components/Input';
 
 const Home = () => (
   <section>
     <h1>Home page</h1>
-    <Text>paragraph</Text>
-    <Text variant="p2">paragraph</Text>
-    <Text variant="h1">paragraph</Text>
-    <Text variant="h2">paragraph</Text>
+    <Input label="test" name="name" />
   </section>
 );
 
