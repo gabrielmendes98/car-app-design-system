@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import FooterBannerImage from 'assets/home-banner-2-desktop.png';
 import FooterBannerImageMobile from 'assets/home-banner-2-mobile.png';
 import Button from 'components/Button';
@@ -35,7 +36,7 @@ const FooterBanner = () => (
             color="white"
             marginTop={4}
           >
-            Ver carros
+            <Link to="/cars">Ver carros</Link>
           </Button>
         </FooterDescription>
       </FooterDescriptionPosition>
@@ -62,7 +63,7 @@ const FooterBanner = () => (
             marginTop={2}
             marginBottom={1}
           >
-            Ver carros
+            <Link to="/cars">Ver carros</Link>
           </Button>
         </MobileFooterDescription>
       </MobileFooterDescriptionPosition>
