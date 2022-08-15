@@ -13,6 +13,7 @@ const BaseButton = ({
   startIcon: startIconProp,
   color = 'primary',
   shape = 'rounded',
+  fullWidth = false,
   ...props
 }: Props) => {
   const startIcon = startIconProp && (
@@ -28,6 +29,7 @@ const BaseButton = ({
       size={size}
       color={color}
       shape={shape}
+      fullWidth={fullWidth}
     >
       {startIcon}
       {children}

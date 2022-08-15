@@ -19,6 +19,7 @@ const GlobalStyle = createGlobalStyle`
 
   a {
     all: unset;
+    width: 100%;
   }
 
   * {

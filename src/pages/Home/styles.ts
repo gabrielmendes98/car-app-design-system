@@ -1,6 +1,9 @@
 import styled, { css } from 'styled-components';
 import { HEADER_HEIGHT, MAIN_PADDING } from 'common/constants';
 
+export const cardWidth = 281;
+export const cardGap = 101;
+
 export const Banner = styled.section(
   ({ theme }) => css`
     position: relative;
@@ -21,17 +24,19 @@ export const CardsCarousel = styled.ul(
   ({ theme }) => css`
     list-style: none;
     display: flex;
-    gap: ${theme.spacing(12.625)};
+    gap: ${cardGap}px;
     overflow-x: auto;
 
     > li {
-      width: ${theme.spacing(35.125)};
-      min-width: ${theme.spacing(35.125)};
-      max-width: ${theme.spacing(35.125)};
+      flex-shrink: 0;
+      width: ${cardWidth}px;
+      min-width: ${cardWidth}px;
     }
 
+    scroll-behavior: smooth;
+
     &::-webkit-scrollbar {
-      display: none;
+      /* display: none; */
     }
   `,
 );
@@ -49,5 +54,11 @@ export const Button = styled.button(
   ({ theme }) => css`
     all: unset;
     font-size: 2.5rem;
+    cursor: pointer;
+    color: ${theme.palette.primary.main};
+
+    :disabled {
+      color: ${theme.palette.tertiary.main};
+    }
   `,
 );

@@ -16,6 +16,7 @@ interface BaseProps extends ComponentPropsWithoutRef<'button'> {
 
 export interface ButtonProps extends BaseProps {
   shape: 'rounded' | 'squared';
+  fullWidth: boolean;
 }
 
 interface IconProps extends BaseProps {}
@@ -85,13 +86,21 @@ export const buttonFontStyle = ({
     }
   `;
 
+const buttonWidthStyle = ({ fullWidth }: ButtonProps) =>
+  fullWidth
+    ? css`
+        width: 100%;
+      `
+    : css`
+        padding: ${theme.spacing(1)} ${theme.spacing(9)};
+      `;
+
 export const Button = styled.button<ButtonProps>(
-  ({ theme, color, shape }) => css`
+  ({ theme, color, shape, fullWidth }) => css`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: ${theme.spacing(1)} ${theme.spacing(9)};
     border: 1px solid ${colorMapper[color]};
     border-radius: ${shapeBorderMapper[shape]};
     cursor: pointer;
@@ -100,6 +109,7 @@ export const Button = styled.button<ButtonProps>(
     ${outlinedButton}
     ${containedButton}
     ${buttonFontStyle}
+    ${buttonWidthStyle}
   `,
 );
 

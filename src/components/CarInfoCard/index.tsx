@@ -57,7 +57,9 @@ const CarInfoCard = ({
       </ResumeList>
 
       <Link to={`/cars/${id}`}>
-        <Button variant="outlined">Ver carro</Button>
+        <Button variant="outlined" fullWidth>
+          Ver carro
+        </Button>
       </Link>
     </InfoCard>
   </Container>

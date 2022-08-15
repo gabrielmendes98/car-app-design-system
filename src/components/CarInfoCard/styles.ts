@@ -6,8 +6,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  flex: 1;
-  max-width: 100%;
+  width: 100%;
 `;
 
 export const Image = styled.div(
@@ -26,6 +25,7 @@ export const Image = styled.div(
 export const InfoCard = styled.div(
   ({ theme }) => css`
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
