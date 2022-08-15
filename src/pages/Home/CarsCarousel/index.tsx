@@ -1,4 +1,11 @@
-import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  MouseEvent,
+  UIEventHandler,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Icon } from '@iconify/react';
 import throttle from 'lodash.throttle';
 import CarInfoCard, { CarInfoCardProps } from 'components/CarInfoCard';
@@ -47,10 +54,13 @@ const CarsCarousel = ({ cars }: Props) => {
   );
 
   useEffect(() => {
+    console.log('dewkjd');
     if (carousel && carousel.current) {
-      setCarouselWidth(carousel.current.clientWidth);
+      setCarouselWidth(
+        carousel.current.scrollWidth - carousel.current.clientWidth,
+      );
     }
-  }, [cars]);
+  }, [cars, carouselPosition]);
 
   useEffect(
     () => () => {
@@ -62,7 +72,7 @@ const CarsCarousel = ({ cars }: Props) => {
 
   return (
     <CarouselContainer>
-      <Button onClick={handlePrevItem} disabled={carouselPosition === 0}>
+      <Button onClick={handlePrevItem} disabled={carouselPosition <= 0}>
         <Icon icon="bi:chevron-left" />
       </Button>
 
