@@ -14,8 +14,7 @@ export const HeaderBase = styled.header<HeaderBaseProps>(
     background-color: ${transparent
       ? 'transparent'
       : theme.palette.primary.main};
-    align-items: center;
-    padding: 0 ${theme.spacing(3)};
+    padding: ${theme.spacing(2)} ${theme.spacing(3)};
     z-index: 2;
   `,
 );
@@ -42,5 +41,39 @@ export const Item = styled.li(
     min-width: fit-content;
     max-width: ${theme.spacing(14.875)};
     flex: 1;
+  `,
+);
+
+export const DesktopHeader = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+
+    @media ${theme.device.mobile} {
+      display: none;
+    }
+  `,
+);
+
+export const MobileHeader = styled.div(
+  ({ theme }) => css`
+    display: none;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+
+    @media ${theme.device.mobile} {
+      display: flex;
+    }
+  `,
+);
+
+export const Button = styled.button(
+  ({ theme }) => css`
+    all: unset;
+    color: ${theme.palette.common.white};
+    font-size: 2.625rem;
   `,
 );

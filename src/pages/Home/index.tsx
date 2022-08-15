@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { listCarsService } from 'api/services/listCars';
 import BannerImage from 'assets/home-banner-1-desktop.png';
+import BannerImageMobile from 'assets/home-banner-1-mobile.png';
 import FooterBannerImage from 'assets/home-banner-2-desktop.png';
+import theme from 'common/styles/theme';
 import { CarInfoCardProps } from 'components/CarInfoCard';
 import Text from 'components/Text';
 import Button from 'components/Button';
@@ -23,7 +25,10 @@ const Home = () => {
   return (
     <section>
       <Banner>
-        <img src={BannerImage} alt="Mustang banner" />
+        <picture>
+          <source media={theme.device.mobile} srcSet={BannerImageMobile} />
+          <img src={BannerImage} alt="Mustang banner" />
+        </picture>
       </Banner>
 
       <CarsCarousel cars={cars} />
