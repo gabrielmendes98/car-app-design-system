@@ -7,7 +7,7 @@ export const Banner = styled.section(
     left: -${MAIN_PADDING};
     top: -${HEADER_HEIGHT};
     z-index: 1;
-    width: calc(100% + 2 * ${MAIN_PADDING});
+    width: calc(100vw + 4px);
 
     img {
       width: 100%;

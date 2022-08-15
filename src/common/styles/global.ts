@@ -14,7 +14,8 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: ${({ theme }) => theme.palette.background.main};
+    background-color: red;
+    /* background-color: ${({ theme }) => theme.palette.background.main}; */
   }
 
   a {
