@@ -54,7 +54,6 @@ const CarsCarousel = ({ cars }: Props) => {
   );
 
   useEffect(() => {
-    console.log('dewkjd');
     if (carousel && carousel.current) {
       setCarouselWidth(
         carousel.current.scrollWidth - carousel.current.clientWidth,
