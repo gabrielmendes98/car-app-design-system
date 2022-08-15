@@ -8,13 +8,14 @@ export interface BaseMenuProps {
 
 export const BaseMenu = styled.div<BaseMenuProps>(
   ({ theme, open }) => css`
-    display: none;
+    display: flex;
     flex-direction: column;
     width: ${theme.spacing(33.75)};
     height: 100%;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -${theme.spacing(33.75)};
+    transition: 0.3s ease-in-out;
     background-color: ${theme.palette.common.superWhite};
     box-shadow: 3px 0px 9px rgba(0, 0, 0, 0.15);
     border-radius: 0px ${theme.spacing(3)} ${theme.spacing(3)} 0px;
@@ -23,7 +24,7 @@ export const BaseMenu = styled.div<BaseMenuProps>(
 
     ${open &&
     css`
-      display: flex;
+      left: 0;
     `}
   `,
 );
