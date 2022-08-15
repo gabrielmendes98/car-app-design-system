@@ -1,17 +1,14 @@
 import styled, { css } from 'styled-components';
-import { MAIN_PADDING } from 'common/constants';
 
 export const FooterBannerContainer = styled.footer(
   ({ theme }) => css`
     margin-top: ${theme.spacing(6)};
     position: relative;
-    left: -${MAIN_PADDING};
-    bottom: -${MAIN_PADDING};
-    width: calc(100% + 2 * ${MAIN_PADDING});
+    left: 0;
+    bottom: 0;
+    width: 100%;
 
     img {
-      position: relative;
-      bottom: -${MAIN_PADDING};
       width: 100%;
       height: auto;
     }
@@ -19,7 +16,7 @@ export const FooterBannerContainer = styled.footer(
 );
 
 export const DesktopContainer = styled.section`
-  display: block;
+  display: flex;
 
   @media ${({ theme }) => theme.device.mobile} {
     display: none;
@@ -30,12 +27,12 @@ export const MobileContainer = styled.section(
   ({ theme }) => css`
     display: none;
 
+    position: relative;
+    width: calc(100% + 4px);
+    left: -4px;
+
     @media ${theme.device.mobile} {
-      display: block;
-      position: absolute;
-      right: -2px;
-      top: ${MAIN_PADDING};
-      left: -2px;
+      display: flex;
     }
   `,
 );
@@ -45,9 +42,9 @@ export const FooterDescriptionPosition = styled.div`
   flex-wrap: wrap;
   align-items: center;
   position: absolute;
-  height: calc(100% - 4px);
+  height: 100%;
   right: 0;
-  top: ${MAIN_PADDING};
+  top: 0;
   background: linear-gradient(
     270deg,
     rgba(29, 37, 39, 0.6) 0%,
@@ -75,7 +72,7 @@ export const MobileFooterDescriptionPosition = styled.div`
   align-items: flex-end;
   position: absolute;
   left: 0;
-  top: ${MAIN_PADDING};
+  top: 16px;
   background: linear-gradient(
     270deg,
     rgba(29, 37, 39, 0.6) 15.42%,

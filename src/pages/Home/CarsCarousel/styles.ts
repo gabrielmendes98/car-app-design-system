@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import { MAIN_PADDING } from 'common/constants';
 
 export const cardWidth = 281;
 export const cardGap = 101;
@@ -15,7 +14,6 @@ export const CarouselContainer = styled.section(
 
     @media ${theme.device.mobile} {
       padding: 0;
-      margin: 0 -${MAIN_PADDING};
     }
   `,
 );
