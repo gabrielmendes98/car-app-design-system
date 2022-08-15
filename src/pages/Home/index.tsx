@@ -1,4 +1,11 @@
-import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  MouseEvent,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Icon } from '@iconify/react';
 import throttle from 'lodash.throttle';
 import { listCarsService } from 'api/services/listCars';
@@ -14,6 +21,8 @@ import {
 } from './styles';
 
 const Home = () => {
+  const [carouselPosition, setCarouselPosition] = useState(0);
+  const [carouselWidth, setCarouselWidth] = useState(0);
   const [cars, setCars] = useState<CarInfoCardProps[]>([]);
   const carousel = useRef<HTMLUListElement>(null);
 
@@ -22,9 +31,11 @@ const Home = () => {
       throttle((e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (carousel && carousel.current) {
-          carousel.current.scrollLeft -= cardWidth + cardGap;
+          const calc = carousel.current.scrollLeft - (cardWidth + cardGap);
+          carousel.current.scrollLeft = calc;
+          setCarouselPosition(calc);
         }
-      }, 400),
+      }, 350),
     [],
   );
 
@@ -33,15 +44,23 @@ const Home = () => {
       throttle((e: MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         if (carousel && carousel.current) {
-          carousel.current.scrollLeft += cardWidth + cardGap;
+          const calc = carousel.current.scrollLeft + cardWidth + cardGap;
+          carousel.current.scrollLeft = calc;
+          setCarouselPosition(calc);
         }
-      }, 400),
+      }, 350),
     [],
   );
 
   useEffect(() => {
     listCarsService().then(setCars);
   }, []);
+
+  useEffect(() => {
+    if (carousel && carousel.current) {
+      setCarouselWidth(carousel.current.clientWidth);
+    }
+  }, [cars]);
 
   useEffect(
     () => () => {
@@ -58,10 +77,7 @@ const Home = () => {
       </Banner>
 
       <CarouselContainer>
-        <Button
-          onClick={handlePrevItem}
-          disabled={carousel?.current?.scrollLeft === 0}
-        >
+        <Button onClick={handlePrevItem} disabled={carouselPosition === 0}>
           <Icon icon="bi:chevron-left" />
         </Button>
 
@@ -82,10 +98,7 @@ const Home = () => {
 
         <Button
           onClick={handleNextItem}
-          disabled={
-            Number(carousel?.current?.scrollLeft) >=
-            Number(carousel?.current?.offsetWidth)
-          }
+          disabled={carouselPosition >= carouselWidth}
         >
           <Icon icon="bi:chevron-right" />
         </Button>
