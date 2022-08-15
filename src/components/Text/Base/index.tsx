@@ -19,6 +19,10 @@ const BaseText = ({
   variant = 'md',
   color = 'primary',
   textAlign = 'start',
+  marginTop = 0,
+  marginRight = 0,
+  marginBottom = 0,
+  marginLeft = 0,
   ...props
 }: Props) => (
   <Typography
@@ -26,6 +30,10 @@ const BaseText = ({
     as={variantAsMapper[variant]}
     color={color}
     textAlign={textAlign}
+    marginTop={marginTop}
+    marginRight={marginRight}
+    marginBottom={marginBottom}
+    marginLeft={marginLeft}
     {...props}
   >
     {children}

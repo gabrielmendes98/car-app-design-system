@@ -5,7 +5,9 @@ import {
   colorMapper,
   contrastMapper,
   convertHexToRGBA,
+  marginHandler,
 } from 'common/styles/utils';
+import { MarginHandler } from 'common/types/styles';
 
 interface BaseProps extends ComponentPropsWithoutRef<'button'> {
   theme: DefaultTheme;
@@ -14,7 +16,7 @@ interface BaseProps extends ComponentPropsWithoutRef<'button'> {
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }
 
-export interface ButtonProps extends BaseProps {
+export interface ButtonProps extends BaseProps, MarginHandler {
   shape: 'rounded' | 'squared';
   fullWidth: boolean;
 }
@@ -110,6 +112,7 @@ export const Button = styled.button<ButtonProps>(
     ${containedButton}
     ${buttonFontStyle}
     ${buttonWidthStyle}
+    ${marginHandler}
   `,
 );
 

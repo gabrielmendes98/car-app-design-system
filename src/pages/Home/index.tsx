@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import { listCarsService } from 'api/services/listCars';
-import BannerImage from 'assets/home-banner.png';
+import BannerImage from 'assets/home-banner-1-desktop.png';
+import FooterBannerImage from 'assets/home-banner-2-desktop.png';
 import { CarInfoCardProps } from 'components/CarInfoCard';
-import { Banner } from './styles';
+import Text from 'components/Text';
+import Button from 'components/Button';
+import { Banner, FooterBanner, FooterDescription } from './styles';
 import CarsCarousel from './CarsCarousel';
 
 const Home = () => {
@@ -19,6 +22,31 @@ const Home = () => {
       </Banner>
 
       <CarsCarousel cars={cars} />
+
+      <FooterBanner>
+        <img src={FooterBannerImage} alt="Mustang footer banner" />
+        <FooterDescription>
+          <Text variant="h1" color="white" textAlign="end" marginBottom={2}>
+            Mustang
+          </Text>
+          <Text variant="md" color="white" textAlign="end">
+            O Ford Mustang é um automóvel desportivo produzido pela Ford Motor
+            Company. O carro foi apresentado ao público em 17 de abril de 1964
+            durante a New York World's Fair. O Mustang, apesar de ter sofrido
+            grandes alterações ao longo dos anos é a mais antiga linha de
+            automóveis da Ford.
+          </Text>
+          <Button
+            size="sm"
+            shape="squared"
+            variant="outlined"
+            color="white"
+            marginTop={4}
+          >
+            Ver carros
+          </Button>
+        </FooterDescription>
+      </FooterBanner>
     </section>
   );
 };

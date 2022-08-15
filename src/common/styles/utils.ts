@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import theme from './theme';
 
 export const convertHexToRGBA = (hexCode: string, opacity = 1) => {
@@ -32,3 +33,21 @@ export const contrastMapper = {
   tertiary: theme.palette.primary.main,
   white: theme.palette.primary.main,
 };
+
+export const marginHandler = ({
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+}: {
+  marginTop: number;
+  marginRight: number;
+  marginBottom: number;
+  marginLeft: number;
+}) =>
+  css`
+    margin-top: ${theme.spacing(marginTop)};
+    margin-right: ${theme.spacing(marginRight)};
+    margin-bottom: ${theme.spacing(marginBottom)};
+    margin-left: ${theme.spacing(marginLeft)};
+  `;

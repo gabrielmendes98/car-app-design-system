@@ -1,8 +1,11 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import { ComponentPropsWithoutRef } from 'react';
-import { colorMapper } from 'common/styles/utils';
+import { colorMapper, marginHandler } from 'common/styles/utils';
+import { MarginHandler } from 'common/types/styles';
 
-export interface TypographyProps extends ComponentPropsWithoutRef<'p'> {
+export interface TypographyProps
+  extends ComponentPropsWithoutRef<'p'>,
+    MarginHandler {
   theme: DefaultTheme;
   variant: 'md' | 'sm' | 'h1' | 'h2' | 'label';
   as: 'p' | 'h1' | 'h2' | 'label';
@@ -81,5 +84,6 @@ export const Typography = styled.p<TypographyProps>(
     ${paragraph2FontStyle};
     ${h1FontStyle};
     ${h2FontStyle};
+    ${marginHandler}
   `,
 );

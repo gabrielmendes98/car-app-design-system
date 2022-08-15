@@ -24,7 +24,7 @@ export const CardsCarousel = styled.ul(
   `,
 );
 
-export const CarouselContainer = styled.div(
+export const CarouselContainer = styled.section(
   ({ theme }) => css`
     display: flex;
     gap: ${theme.spacing(8.75)};
