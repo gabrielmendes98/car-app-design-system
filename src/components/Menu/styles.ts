@@ -14,7 +14,7 @@ export const BaseMenu = styled.div<BaseMenuProps>(
     height: 100%;
     position: fixed;
     top: 0;
-    left: -${theme.spacing(33.75)};
+    left: -100%;
     transition: 0.3s ease-in-out;
     background-color: ${theme.palette.common.superWhite};
     box-shadow: 3px 0px 9px rgba(0, 0, 0, 0.15);
