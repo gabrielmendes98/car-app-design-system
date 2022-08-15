@@ -33,12 +33,10 @@ export const FooterBanner = styled.footer(
   `,
 );
 
-export const FooterDescription = styled.section`
+export const FooterDescriptionPosition = styled.section`
   display: flex;
-  flex-direction: column;
-  flex-grow: 0;
-  justify-content: center;
-  align-items: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
   position: absolute;
   height: calc(100% - 4px);
   right: 0;
@@ -54,4 +52,12 @@ export const FooterDescription = styled.section`
   backdrop-filter: blur(5px);
   width: 57.5%;
   padding-right: 12%;
+  overflow: auto;
+`;
+
+export const FooterDescription = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
 `;
