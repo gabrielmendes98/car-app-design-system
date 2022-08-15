@@ -57,7 +57,7 @@ const h1FontStyle = ({ theme, variant }: TypographyProps) =>
 
     @media ${theme.device.mobile} {
       font-weight: 400;
-      font-size: 4rem;
+      font-size: 2rem;
       line-height: 150%;
     }
   `;

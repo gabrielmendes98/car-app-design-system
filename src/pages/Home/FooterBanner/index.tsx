@@ -1,4 +1,5 @@
 import FooterBannerImage from 'assets/home-banner-2-desktop.png';
+import FooterBannerImageMobile from 'assets/home-banner-2-mobile.png';
 import Button from 'components/Button';
 import Text from 'components/Text';
 import {
@@ -7,6 +8,8 @@ import {
   FooterDescriptionPosition,
   DesktopContainer,
   MobileContainer,
+  MobileFooterDescriptionPosition,
+  MobileFooterDescription,
 } from './styles';
 
 const FooterBanner = () => (
@@ -38,7 +41,32 @@ const FooterBanner = () => (
       </FooterDescriptionPosition>
     </DesktopContainer>
 
-    <MobileContainer></MobileContainer>
+    <MobileContainer>
+      <img src={FooterBannerImageMobile} alt="Mustang footer banner" />
+      <MobileFooterDescriptionPosition>
+        <MobileFooterDescription>
+          <Text variant="h1" color="white" textAlign="end" marginBottom={1}>
+            O que são
+          </Text>
+          <Text variant="md" color="white" textAlign="end">
+            A sigla SUV significa Sport Utility Vehicle -- ou seja, veículo
+            utilitário esportivo. As SUVs costumam ter porte avantajado, além de
+            interior espaçoso e possibilidade de trafegar dentro e fora da
+            cidade.
+          </Text>
+          <Button
+            size="sm"
+            shape="squared"
+            variant="outlined"
+            color="white"
+            marginTop={2}
+            marginBottom={1}
+          >
+            Ver carros
+          </Button>
+        </MobileFooterDescription>
+      </MobileFooterDescriptionPosition>
+    </MobileContainer>
   </FooterBannerContainer>
 );
 
