@@ -7,8 +7,8 @@ export interface BaseMenuProps {
 }
 
 export const BaseMenu = styled.div<BaseMenuProps>(
-  ({ theme }) => css`
-    display: flex;
+  ({ theme, open }) => css`
+    display: none;
     flex-direction: column;
     width: ${theme.spacing(33.75)};
     height: 100%;
@@ -20,6 +20,11 @@ export const BaseMenu = styled.div<BaseMenuProps>(
     border-radius: 0px ${theme.spacing(3)} ${theme.spacing(3)} 0px;
     padding: ${theme.spacing(4)} ${theme.spacing(3)};
     gap: ${theme.spacing(5)};
+
+    ${open &&
+    css`
+      display: flex;
+    `}
   `,
 );
 
