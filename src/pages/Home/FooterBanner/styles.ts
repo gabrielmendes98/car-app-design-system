@@ -18,7 +18,25 @@ export const FooterBannerContainer = styled.footer(
   `,
 );
 
-export const FooterDescriptionPosition = styled.section`
+export const DesktopContainer = styled.section`
+  display: block;
+
+  @media ${({ theme }) => theme.device.mobile} {
+    display: none;
+  }
+`;
+
+export const MobileContainer = styled.section(
+  ({ theme }) => css`
+    display: none;
+
+    @media ${theme.device.mobile} {
+      display: flex;
+    }
+  `,
+);
+
+export const FooterDescriptionPosition = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -40,7 +58,7 @@ export const FooterDescriptionPosition = styled.section`
   overflow: auto;
 `;
 
-export const FooterDescription = styled.section`
+export const FooterDescription = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
