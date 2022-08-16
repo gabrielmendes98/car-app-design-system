@@ -33,8 +33,6 @@ const CarsList = () => {
         >
           Adicionar Novo
         </Button>
-
-        <Button onClick={() => dispatch(listMoreCars())}>load more</Button>
       </Header>
 
       <InfiniteScroll
