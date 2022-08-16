@@ -1,6 +1,6 @@
 import { ComponentPropsWithoutRef } from 'react';
 import Text from 'components/Text';
-import { Input, InputWrapper } from './styles';
+import { Container, Input, InputWrapper } from './styles';
 
 interface Props extends ComponentPropsWithoutRef<'input'> {
   label: string;
@@ -8,14 +8,14 @@ interface Props extends ComponentPropsWithoutRef<'input'> {
 }
 
 const BaseInput = ({ label, name, ...props }: Props) => (
-  <div>
-    <Text variant="label" htmlFor={name}>
+  <Container>
+    <Text variant="label" htmlFor={name} color="inherit">
       {label}
     </Text>
     <InputWrapper>
       <Input name={name} id={name} {...props} />
     </InputWrapper>
-  </div>
+  </Container>
 );
 
 export default BaseInput;

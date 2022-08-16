@@ -25,6 +25,7 @@ export const colorMapper = {
   secondary: theme.palette.secondary.main,
   tertiary: theme.palette.tertiary.main,
   white: theme.palette.common.white,
+  inherit: 'inherit',
 };
 
 export const contrastMapper = {

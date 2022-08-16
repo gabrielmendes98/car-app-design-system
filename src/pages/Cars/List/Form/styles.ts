@@ -3,13 +3,13 @@ import styled from 'styled-components';
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  min-width: 680px;
+  width: 604px;
 `;
 
 export const ContentWrapper = styled.div`
   display: flex;
   width: 100%;
-  gap: 56px;
+  gap: 0px;
 `;
 
 export const ActionsWrapper = styled.div`

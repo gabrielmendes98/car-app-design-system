@@ -41,7 +41,9 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
           <ImagePreview>
             <img src={values.imageUrl} alt="preview da imagem do carro" />
           </ImagePreview>
-          <Button variant="text">Selecionar imagem</Button>
+          <Button variant="text" marginTop={1}>
+            Selecionar imagem
+          </Button>
         </ImagePart>
 
         <DataPart>

@@ -1,5 +1,15 @@
 import styled, { css } from 'styled-components';
 
+export const Container = styled.div(
+  ({ theme }) => css`
+    color: ${theme.palette.secondary.main};
+
+    &:focus-within {
+      color: ${theme.palette.primary.main};
+    }
+  `,
+);
+
 export const Input = styled.input(
   ({ theme }) => css`
     all: unset;

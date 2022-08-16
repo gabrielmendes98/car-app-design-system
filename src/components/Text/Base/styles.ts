@@ -9,7 +9,7 @@ export interface TypographyProps
   theme: DefaultTheme;
   variant: 'md' | 'sm' | 'h1' | 'h2' | 'label';
   as: 'p' | 'h1' | 'h2' | 'label';
-  color: 'primary' | 'secondary' | 'tertiary' | 'white';
+  color: 'primary' | 'secondary' | 'tertiary' | 'white' | 'inherit';
   textAlign:
     | 'start'
     | 'end'
