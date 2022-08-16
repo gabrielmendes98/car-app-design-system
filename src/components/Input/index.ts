@@ -1,1 +1,2 @@
-export { default } from './Base';
+export { default as BaseInput } from './Base';
+export { default } from './FormInput';

@@ -16,7 +16,9 @@ const initialValues = {
 };
 
 const AddCarForm = () => {
-  const handleSubmit = () => {};
+  const handleSubmit = (values: typeof initialValues) => {
+    console.log(values);
+  };
 
   return (
     <Container>

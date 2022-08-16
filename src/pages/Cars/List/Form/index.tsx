@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { FormEvent, ReactNode } from 'react';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import {
@@ -27,11 +27,13 @@ interface Props {
 }
 
 const CarForm = ({ initialValues, children, onSubmit }: Props) => {
-  const [values, setValues] = useState<Props['initialValues']>(initialValues);
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    onSubmit(values, e);
+    const formData = new FormData(e.currentTarget);
+    const fieldValues = Object.fromEntries(
+      formData.entries(),
+    ) as unknown as FormFields;
+    onSubmit(fieldValues, e);
   };
 
   return (
@@ -39,7 +41,10 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
       <ContentWrapper>
         <ImagePart>
           <ImagePreview>
-            <img src={values.imageUrl} alt="preview da imagem do carro" />
+            <img
+              src={initialValues.imageUrl}
+              alt="preview da imagem do carro"
+            />
           </ImagePreview>
           <Button variant="text" marginTop={1}>
             Selecionar imagem
