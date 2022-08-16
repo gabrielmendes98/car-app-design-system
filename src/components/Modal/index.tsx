@@ -1,6 +1,8 @@
 import { Icon } from '@iconify/react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
+import useOnClickOutside from 'common/hooks/useOnClickOutside';
 import { useAppSelector } from 'store/hooks';
 import {
   hideModal,
@@ -11,14 +13,17 @@ import { IconButton } from 'components/Button';
 import { ButtonContainer, Container, Wrapper } from './styles';
 
 const Modal = () => {
+  const ref = useRef(null);
   const visible = useAppSelector(selectModalVisible);
   const content = useAppSelector(selectModalContent);
   const dispatch = useDispatch();
 
+  useOnClickOutside(ref, () => dispatch(hideModal()));
+
   if (visible) {
     return createPortal(
       <Wrapper>
-        <Container>
+        <Container ref={ref}>
           <ButtonContainer>
             <IconButton
               title="close modal"
