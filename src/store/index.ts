@@ -19,6 +19,13 @@ export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
   configureStore({
     reducer: rootReducer,
     preloadedState,
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: ['modal/show'],
+          ignoredPaths: ['modal.content'],
+        },
+      }),
   });
 
 export const store = setupStore();
