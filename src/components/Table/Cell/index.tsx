@@ -1,12 +1,15 @@
-import { ReactNode } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 import { TableCellContainer } from './styles';
 
-interface Props {
+interface Props extends ComponentPropsWithoutRef<'th'> {
   children?: ReactNode;
+  as?: 'td' | 'th';
 }
 
-const TableCell = ({ children }: Props) => (
-  <TableCellContainer>{children}</TableCellContainer>
+const TableCell = ({ children, as = 'td', ...props }: Props) => (
+  <TableCellContainer as={as} {...props}>
+    {children}
+  </TableCellContainer>
 );
 
 export default TableCell;

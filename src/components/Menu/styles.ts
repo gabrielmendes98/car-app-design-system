@@ -42,7 +42,7 @@ export const LinksList = styled.ul(
 
 export const Item = styled.li(
   ({ theme }) => css`
-    ${() => buttonFontStyle({ theme, size: 'md' })};
+    ${buttonFontStyle({ size: 'md' })};
 
     a {
       padding-bottom: 3px;

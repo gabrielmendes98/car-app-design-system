@@ -26,12 +26,12 @@ const CarsList = () => (
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell>Nome</TableCell>
-          <TableCell>Ano</TableCell>
-          <TableCell>Velocidade máx Km/h</TableCell>
-          <TableCell>Nota Economia</TableCell>
-          <TableCell>Nota usuários</TableCell>
-          <TableCell></TableCell>
+          <TableCell as="th">Nome</TableCell>
+          <TableCell as="th">Ano</TableCell>
+          <TableCell as="th">Velocidade máx Km/h</TableCell>
+          <TableCell as="th">Nota Economia</TableCell>
+          <TableCell as="th">Nota usuários</TableCell>
+          <TableCell as="th"></TableCell>
         </TableRow>
       </TableHead>
 
@@ -42,11 +42,16 @@ const CarsList = () => (
           <TableCell>Velocidade máx Km/h</TableCell>
           <TableCell>Nota Economia</TableCell>
           <TableCell>Nota usuários</TableCell>
-          <TableCell>
-            <IconButton title="delete item" size={1.5}>
+          <TableCell
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}
+          >
+            <IconButton title="delete item" size={1.25}>
               <Icon icon="akar-icons:trash-can" />
             </IconButton>
-            <IconButton title="edit item" size={1.5}>
+            <IconButton title="edit item" size={1.25}>
               <Icon icon="clarity:edit-line" />
             </IconButton>
           </TableCell>
@@ -57,11 +62,13 @@ const CarsList = () => (
           <TableCell>Velocidade máx Km/h</TableCell>
           <TableCell>Nota Economia</TableCell>
           <TableCell>Nota usuários</TableCell>
-          <TableCell>
-            <IconButton title="delete item" size={1.5}>
+          <TableCell
+            style={{ display: 'flex', justifyContent: 'space-around' }}
+          >
+            <IconButton title="delete item" size={1.25}>
               <Icon icon="akar-icons:trash-can" />
             </IconButton>
-            <IconButton title="edit item" size={1.5}>
+            <IconButton title="edit item" size={1.25}>
               <Icon icon="clarity:edit-line" />
             </IconButton>
           </TableCell>

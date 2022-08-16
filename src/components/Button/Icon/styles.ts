@@ -19,6 +19,8 @@ export const Button = styled.button<ButtonProps>(
     align-items: center;
     border-radius: 50%;
 
+    padding: 2px;
+
     &:active {
       background-color: ${convertHexToRGBA(colorMapper[color], 0.1)};
     }

@@ -36,7 +36,7 @@ export const LinksList = styled.ul(
 export const Item = styled.li(
   ({ theme }) => css`
     color: ${theme.palette.common.white};
-    ${() => buttonFontStyle({ theme, size: 'md' })}
+    ${buttonFontStyle({ size: 'md' })}
     cursor: pointer;
     min-width: fit-content;
     max-width: ${theme.spacing(14.875)};

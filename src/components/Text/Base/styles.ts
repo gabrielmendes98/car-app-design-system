@@ -20,7 +20,7 @@ export interface TypographyProps
     | 'match-parent';
 }
 
-const paragraph1FontStyle = ({ theme, variant }: TypographyProps) =>
+export const paragraphMDFontStyle = ({ theme, variant }: TypographyProps) =>
   variant === 'md' &&
   css`
     font-weight: 300;
@@ -34,19 +34,20 @@ const paragraph1FontStyle = ({ theme, variant }: TypographyProps) =>
     }
   `;
 
-const paragraph2FontStyle = ({ theme, variant }: TypographyProps) =>
-  (variant === 'sm' || variant === 'label') &&
-  css`
+export const paragrapSMFontStyle = css`
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+
+  @media ${({ theme }) => theme.device.mobile} {
     font-weight: 400;
     font-size: 1rem;
     line-height: 150%;
+  }
+`;
 
-    @media ${theme.device.mobile} {
-      font-weight: 400;
-      font-size: 1rem;
-      line-height: 150%;
-    }
-  `;
+const paragrapSMFontStyleCreator = ({ variant }: TypographyProps) =>
+  (variant === 'sm' || variant === 'label') && paragrapSMFontStyle;
 
 const h1FontStyle = ({ theme, variant }: TypographyProps) =>
   variant === 'h1' &&
@@ -80,8 +81,8 @@ export const Typography = styled.p<TypographyProps>(
   ({ color, textAlign }) => css`
     text-align: ${textAlign};
     color: ${colorMapper[color]};
-    ${paragraph1FontStyle};
-    ${paragraph2FontStyle};
+    ${paragraphMDFontStyle};
+    ${paragrapSMFontStyleCreator};
     ${h1FontStyle};
     ${h2FontStyle};
     ${marginHandler}

@@ -72,18 +72,12 @@ const containedButton = ({ variant, color }: ButtonProps) =>
     }
   `;
 
-export const buttonFontStyle = ({
-  theme,
-  size,
-}: {
-  theme: DefaultTheme;
-  size: BaseProps['size'];
-}) =>
+export const buttonFontStyle = ({ size }: { size: BaseProps['size'] }) =>
   css`
     font-weight: 500;
     ${desktopButtonFontStyleMapper[size]}
 
-    @media ${theme.device.mobile} {
+    @media ${({ theme }) => theme.device.mobile} {
       ${mobileButtonFontStyleMapper[size]}
     }
   `;
@@ -98,7 +92,7 @@ const buttonWidthStyle = ({ fullWidth }: ButtonProps) =>
       `;
 
 export const Button = styled.button<ButtonProps>(
-  ({ theme, color, shape, fullWidth }) => css`
+  ({ theme, color, shape }) => css`
     display: flex;
     flex-direction: row;
     justify-content: center;
