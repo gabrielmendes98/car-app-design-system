@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { listFirstCars, listMoreCars, selectAllCars } from 'store/slices/cars';
+import { showModal } from 'store/slices/modal';
 import Button, { IconButton } from 'components/Button';
 import {
   Table,
@@ -13,6 +14,8 @@ import {
 } from 'components/Table';
 import Text from 'components/Text';
 import { Header, Section } from './styles';
+
+const FakeComponent = () => <Text>Ola</Text>;
 
 const CarsList = () => {
   const cars = useAppSelector(selectAllCars);
@@ -30,6 +33,7 @@ const CarsList = () => {
           size="sm"
           startIcon={<Icon icon="carbon:add" />}
           variant="outlined"
+          onClick={() => dispatch(showModal(<FakeComponent />))}
         >
           Adicionar Novo
         </Button>

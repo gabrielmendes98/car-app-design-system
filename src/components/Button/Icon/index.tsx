@@ -11,8 +11,9 @@ const IconButton = ({
   title,
   size = 1,
   color = 'primary',
+  ...props
 }: Props) => (
-  <Button title={title} size={size} color={color}>
+  <Button title={title} size={size} color={color} {...props}>
     {children}
   </Button>
 );
