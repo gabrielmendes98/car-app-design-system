@@ -55,6 +55,20 @@ const outlinedButton = ({ variant, color }: ButtonProps) =>
   css`
     background-color: transparent;
     color: ${colorMapper[color]};
+    border: 1px solid ${colorMapper[color]};
+
+    &:active {
+      background-color: ${convertHexToRGBA(colorMapper[color], 0.1)};
+    }
+  `;
+
+const textButton = ({ variant, color }: ButtonProps) =>
+  variant === 'text' &&
+  css`
+    background-color: transparent;
+    color: ${colorMapper[color]};
+    border: none;
+    padding: 8px;
 
     &:active {
       background-color: ${convertHexToRGBA(colorMapper[color], 0.1)};
@@ -66,6 +80,7 @@ const containedButton = ({ variant, color }: ButtonProps) =>
   css`
     background-color: ${colorMapper[color]};
     color: ${contrastMapper[color]};
+    border: 1px solid ${colorMapper[color]};
 
     &:active {
       background-color: ${convertHexToRGBA(colorMapper[color], 0.9)};
@@ -89,15 +104,15 @@ const buttonWidthStyle = ({ fullWidth }: ButtonProps) =>
       `
     : css`
         padding: ${theme.spacing(1)} ${theme.spacing(9)};
+        width: fit-content;
       `;
 
 export const Button = styled.button<ButtonProps>(
-  ({ theme, color, shape }) => css`
+  ({ theme, shape }) => css`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid ${colorMapper[color]};
     border-radius: ${shapeBorderMapper[shape]};
     cursor: pointer;
     height: ${theme.spacing(6)};
@@ -107,6 +122,7 @@ export const Button = styled.button<ButtonProps>(
     ${buttonFontStyle}
     ${buttonWidthStyle}
     ${marginHandler}
+    ${textButton}
   `,
 );
 
