@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
-import { useEffect, useState } from 'react';
-import carsService from 'api/services/cars';
-import { Car } from 'common/types/car';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { listFirstCars, listMoreCars, selectAllCars } from 'store/slices/cars';
 import Button, { IconButton } from 'components/Button';
 import {
   Table,
@@ -14,22 +14,11 @@ import Text from 'components/Text';
 import { Header, Section } from './styles';
 
 const CarsList = () => {
-  const [cars, setCars] = useState<Car[]>([]);
-
-  const loadMoreCars = () => {
-    const lastCar = cars.at(-1);
-
-    if (lastCar) {
-      const lastId = lastCar.id;
-
-      carsService
-        .infiniteScroll(lastId)
-        .then(newCars => setCars(init => [...init, ...newCars]));
-    }
-  };
+  const cars = useAppSelector(selectAllCars);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    carsService.list().then(setCars);
+    dispatch(listFirstCars());
   }, []);
 
   return (
@@ -44,7 +33,7 @@ const CarsList = () => {
           Adicionar Novo
         </Button>
 
-        <Button onClick={loadMoreCars}>load more</Button>
+        <Button onClick={() => dispatch(listMoreCars())}>load more</Button>
       </Header>
 
       <Table>

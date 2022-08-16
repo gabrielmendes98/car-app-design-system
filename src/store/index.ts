@@ -6,9 +6,11 @@ import {
   PreloadedState,
 } from '@reduxjs/toolkit';
 import counterReducer from './slices/counter';
+import carsReducer from './slices/cars';
 
 const rootReducer = combineReducers({
   counter: counterReducer,
+  cars: carsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
