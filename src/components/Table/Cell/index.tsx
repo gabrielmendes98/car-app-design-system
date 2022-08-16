@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { TableCellContainer } from './styles';
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 const TableCell = ({ children }: Props) => (
