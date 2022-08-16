@@ -1,12 +1,14 @@
 import { ReactNode } from 'react';
-import { TableHeadContainer } from './styles';
+import { TableHeadContainer, TableHeadContainerProps } from './styles';
 
-interface Props {
+interface Props extends Partial<TableHeadContainerProps> {
   children: ReactNode;
 }
 
-const TableHead = ({ children }: Props) => (
-  <TableHeadContainer>{children}</TableHeadContainer>
+const TableHead = ({ children, sticky = false, ...props }: Props) => (
+  <TableHeadContainer sticky={sticky} {...props}>
+    {children}
+  </TableHeadContainer>
 );
 
 export default TableHead;

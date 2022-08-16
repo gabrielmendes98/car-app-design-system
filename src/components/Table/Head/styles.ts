@@ -1,9 +1,21 @@
+import { ComponentPropsWithoutRef } from 'react';
 import styled, { css } from 'styled-components';
 
-export const TableHeadContainer = styled.thead(
-  ({ theme }) => css`
+export interface TableHeadContainerProps
+  extends ComponentPropsWithoutRef<'thead'> {
+  sticky: boolean;
+}
+
+export const TableHeadContainer = styled.thead<TableHeadContainerProps>(
+  ({ theme, sticky }) => css`
     background-color: ${theme.palette.primary.main};
     color: ${theme.palette.common.white};
+
+    ${sticky &&
+    css`
+      position: sticky;
+      top: 0;
+    `}
 
     tr {
       th:first-of-type {
