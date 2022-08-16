@@ -11,7 +11,7 @@ import { MarginHandler } from 'common/types/styles';
 
 interface BaseProps extends ComponentPropsWithoutRef<'button'> {
   theme: DefaultTheme;
-  variant: 'outlined' | 'contained';
+  variant: 'outlined' | 'contained' | 'text';
   size: 'md' | 'sm';
   color: 'primary' | 'secondary' | 'tertiary' | 'white';
 }

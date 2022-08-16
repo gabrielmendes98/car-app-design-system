@@ -8,14 +8,14 @@ interface Props extends ComponentPropsWithoutRef<'input'> {
 }
 
 const BaseInput = ({ label, name, ...props }: Props) => (
-  <>
+  <div>
     <Text variant="label" htmlFor={name}>
       {label}
     </Text>
     <InputWrapper>
       <Input name={name} id={name} {...props} />
     </InputWrapper>
-  </>
+  </div>
 );
 
 export default BaseInput;

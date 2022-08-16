@@ -14,8 +14,7 @@ import {
 } from 'components/Table';
 import Text from 'components/Text';
 import { Header, Section } from './styles';
-
-const FakeComponent = () => <Text>Ola</Text>;
+import AddCarForm from './Add';
 
 const CarsList = () => {
   const cars = useAppSelector(selectAllCars);
@@ -33,7 +32,7 @@ const CarsList = () => {
           size="sm"
           startIcon={<Icon icon="carbon:add" />}
           variant="outlined"
-          onClick={() => dispatch(showModal(<FakeComponent />))}
+          onClick={() => dispatch(showModal(<AddCarForm />))}
         >
           Adicionar Novo
         </Button>

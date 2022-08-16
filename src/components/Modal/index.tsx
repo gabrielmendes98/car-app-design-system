@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import useOnClickOutside from 'common/hooks/useOnClickOutside';
 import { useAppSelector } from 'store/hooks';
 import {
@@ -19,6 +19,11 @@ const Modal = () => {
   const dispatch = useDispatch();
 
   useOnClickOutside(ref, () => dispatch(hideModal()));
+
+  useEffect(() => {
+    if (visible) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'visible';
+  }, [visible]);
 
   if (visible) {
     return createPortal(

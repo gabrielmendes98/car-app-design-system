@@ -15,12 +15,11 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   background-color: ${({ theme }) => theme.palette.common.white};
-  padding: ${({ theme }) => theme.spacing(2)};
   border-radius: ${({ theme }) => theme.spacing(3)};
 `;
 
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
+  padding: ${({ theme }) => theme.spacing(2)};
 `;
