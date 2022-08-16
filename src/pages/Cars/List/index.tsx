@@ -27,7 +27,9 @@ const CarsList = () => (
       <TableHead>
         <TableRow>
           <TableCell as="th">Nome</TableCell>
-          <TableCell as="th">Ano</TableCell>
+          <TableCell as="th" align="right">
+            Ano
+          </TableCell>
           <TableCell as="th">Velocidade máx Km/h</TableCell>
           <TableCell as="th">Nota Economia</TableCell>
           <TableCell as="th">Nota usuários</TableCell>
@@ -37,9 +39,9 @@ const CarsList = () => (
 
       <TableBody>
         <TableRow>
-          <TableCell>Nome</TableCell>
-          <TableCell>Ano</TableCell>
-          <TableCell>Velocidade máx Km/h</TableCell>
+          <TableCell>Mustang</TableCell>
+          <TableCell align="right">Ano</TableCell>
+          <TableCell>180</TableCell>
           <TableCell>Nota Economia</TableCell>
           <TableCell>Nota usuários</TableCell>
           <TableCell
@@ -57,13 +59,16 @@ const CarsList = () => (
           </TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>Nome</TableCell>
-          <TableCell>Ano</TableCell>
-          <TableCell>Velocidade máx Km/h</TableCell>
+          <TableCell>Mustang</TableCell>
+          <TableCell align="right">Ano</TableCell>
+          <TableCell>180</TableCell>
           <TableCell>Nota Economia</TableCell>
           <TableCell>Nota usuários</TableCell>
           <TableCell
-            style={{ display: 'flex', justifyContent: 'space-around' }}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}
           >
             <IconButton title="delete item" size={1.25}>
               <Icon icon="akar-icons:trash-can" />

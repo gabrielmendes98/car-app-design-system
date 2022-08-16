@@ -2,9 +2,10 @@ import styled, { css } from 'styled-components';
 import { paragrapSMFontStyle } from 'components/Text/Base/styles';
 
 export const TableCellContainer = styled.td(
-  ({ theme }) => css`
+  ({ align }) => css`
+    display: table-cell;
     ${paragrapSMFontStyle};
-    padding: 20px 0;
-    text-align: center;
+    padding: 20px 20px;
+    text-align: ${align};
   `,
 );

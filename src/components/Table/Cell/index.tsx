@@ -6,8 +6,13 @@ interface Props extends ComponentPropsWithoutRef<'th'> {
   as?: 'td' | 'th';
 }
 
-const TableCell = ({ children, as = 'td', ...props }: Props) => (
-  <TableCellContainer as={as} {...props}>
+const TableCell = ({
+  children,
+  as = 'td',
+  align = 'left',
+  ...props
+}: Props) => (
+  <TableCellContainer as={as} align={align} {...props}>
     {children}
   </TableCellContainer>
 );
