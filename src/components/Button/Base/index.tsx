@@ -18,6 +18,7 @@ const BaseButton = ({
   marginRight = 0,
   marginBottom = 0,
   marginLeft = 0,
+  type = 'button',
   ...props
 }: Props) => {
   const startIcon = startIconProp && (
@@ -38,6 +39,7 @@ const BaseButton = ({
       marginRight={marginRight}
       marginBottom={marginBottom}
       marginLeft={marginLeft}
+      type={type}
     >
       {startIcon}
       {children}
