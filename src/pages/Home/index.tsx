@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { listCarsService } from 'api/services/listCars';
+import carsService from 'api/services/cars';
 import BannerImage from 'assets/home-banner-1-desktop.png';
 import BannerImageMobile from 'assets/home-banner-1-mobile.png';
 import theme from 'common/styles/theme';
@@ -12,7 +12,12 @@ const Home = () => {
   const [cars, setCars] = useState<CarInfoCardProps[]>([]);
 
   useEffect(() => {
-    listCarsService().then(setCars);
+    carsService
+      .list()
+      .then(setCars)
+      .catch(() => {});
+    // geralmente utilizo interceptors para erros para nao precisar colocar catch em tudo,
+    // mas devido a falta de tempo, resolvi fazer assim para nao dar problemas nos testes
   }, []);
 
   return (

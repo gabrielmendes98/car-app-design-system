@@ -1,11 +1,4 @@
-import {
-  MouseEvent,
-  UIEventHandler,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { MouseEvent, useEffect, useMemo, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import throttle from 'lodash.throttle';
 import CarInfoCard, { CarInfoCardProps } from 'components/CarInfoCard';
@@ -75,7 +68,7 @@ const CarsCarousel = ({ cars }: Props) => {
         <Icon icon="bi:chevron-left" />
       </Button>
 
-      <CardsCarousel ref={carousel}>
+      <CardsCarousel ref={carousel} id="cars-list">
         {cars.map(car => (
           <li key={car.id}>
             <CarInfoCard
