@@ -1,5 +1,6 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useRef, useEffect } from 'react';
+import useOnClickOutside from 'common/hooks/useOnClickOutside';
 import Logo from 'components/Logo';
 import { BaseMenu, BaseMenuProps, Item, LinksList, Navigation } from './styles';
 
@@ -9,19 +10,13 @@ interface Props extends Omit<BaseMenuProps, 'theme'> {
 
 const Menu = ({ open, handleClose }: Props) => {
   const ref = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  useOnClickOutside(ref, handleClose);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current?.contains(event.target as Node)) {
-        handleClose();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
+    handleClose();
+  }, [location]);
 
   return (
     <BaseMenu open={open} ref={ref}>
