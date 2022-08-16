@@ -21,5 +21,5 @@ export const Container = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: ${({ theme }) => theme.spacing(2)};
+  padding: 40px 40px 0 40px;
 `;
