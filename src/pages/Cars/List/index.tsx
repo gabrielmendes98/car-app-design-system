@@ -1,4 +1,7 @@
 import { Icon } from '@iconify/react';
+import { useEffect, useState } from 'react';
+import carsService from 'api/services/cars';
+import { Car } from 'common/types/car';
 import Button, { IconButton } from 'components/Button';
 import {
   Table,
@@ -10,77 +13,81 @@ import {
 import Text from 'components/Text';
 import { Header, Section } from './styles';
 
-const CarsList = () => (
-  <Section>
-    <Header>
-      <Text variant="h1">Lista</Text>
-      <Button
-        size="sm"
-        startIcon={<Icon icon="carbon:add" />}
-        variant="outlined"
-      >
-        Adicionar Novo
-      </Button>
-    </Header>
+const CarsList = () => {
+  const [cars, setCars] = useState<Car[]>([]);
 
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell as="th">Nome</TableCell>
-          <TableCell as="th" align="right">
-            Ano
-          </TableCell>
-          <TableCell as="th">Velocidade máx Km/h</TableCell>
-          <TableCell as="th">Nota Economia</TableCell>
-          <TableCell as="th">Nota usuários</TableCell>
-          <TableCell as="th"></TableCell>
-        </TableRow>
-      </TableHead>
+  const loadMoreCars = () => {
+    const lastCar = cars.at(-1);
 
-      <TableBody>
-        <TableRow>
-          <TableCell>Mustang</TableCell>
-          <TableCell align="right">Ano</TableCell>
-          <TableCell>180</TableCell>
-          <TableCell>Nota Economia</TableCell>
-          <TableCell>Nota usuários</TableCell>
-          <TableCell
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-            }}
-          >
-            <IconButton title="delete item" size={1.25}>
-              <Icon icon="akar-icons:trash-can" />
-            </IconButton>
-            <IconButton title="edit item" size={1.25}>
-              <Icon icon="clarity:edit-line" />
-            </IconButton>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Mustang</TableCell>
-          <TableCell align="right">Ano</TableCell>
-          <TableCell>180</TableCell>
-          <TableCell>Nota Economia</TableCell>
-          <TableCell>Nota usuários</TableCell>
-          <TableCell
-            style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-            }}
-          >
-            <IconButton title="delete item" size={1.25}>
-              <Icon icon="akar-icons:trash-can" />
-            </IconButton>
-            <IconButton title="edit item" size={1.25}>
-              <Icon icon="clarity:edit-line" />
-            </IconButton>
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
-  </Section>
-);
+    if (lastCar) {
+      const lastId = lastCar.id;
+
+      carsService
+        .infiniteScroll(lastId)
+        .then(newCars => setCars(init => [...init, ...newCars]));
+    }
+  };
+
+  useEffect(() => {
+    carsService.list().then(setCars);
+  }, []);
+
+  return (
+    <Section>
+      <Header>
+        <Text variant="h1">Lista</Text>
+        <Button
+          size="sm"
+          startIcon={<Icon icon="carbon:add" />}
+          variant="outlined"
+        >
+          Adicionar Novo
+        </Button>
+
+        <Button onClick={loadMoreCars}>load more</Button>
+      </Header>
+
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell as="th">Nome</TableCell>
+            <TableCell as="th" align="right">
+              Ano
+            </TableCell>
+            <TableCell as="th">Velocidade máx Km/h</TableCell>
+            <TableCell as="th">Nota Economia</TableCell>
+            <TableCell as="th">Nota usuários</TableCell>
+            <TableCell as="th"></TableCell>
+          </TableRow>
+        </TableHead>
+
+        <TableBody>
+          {cars.map(car => (
+            <TableRow key={car.id}>
+              <TableCell>{car.name}</TableCell>
+              <TableCell align="right">{car.year}</TableCell>
+              <TableCell>{`${car.maxSpeed} Km/h`}</TableCell>
+              <TableCell>{`${car.economyRate}/10`}</TableCell>
+              <TableCell>{`${car.usersRate}/10`}</TableCell>
+              <TableCell
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-around',
+                }}
+              >
+                <IconButton title="delete item" size={1.25}>
+                  <Icon icon="akar-icons:trash-can" />
+                </IconButton>
+                <IconButton title="edit item" size={1.25}>
+                  <Icon icon="clarity:edit-line" />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </Section>
+  );
+};
 
 export default CarsList;

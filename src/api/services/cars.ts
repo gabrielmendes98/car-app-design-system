@@ -1,5 +1,20 @@
 import { Car } from 'common/types/car';
 
+class BaseMockCar {
+  id: number;
+  imageUrl = '';
+  imageAlt = '';
+  name = 'Mustang';
+  year = '2015';
+  maxSpeed = 180;
+  economyRate = 9;
+  usersRate = 8;
+
+  constructor(id: number) {
+    this.id = id;
+  }
+}
+
 const carsService = {
   list(): Promise<Car[]> {
     return Promise.resolve([
@@ -74,6 +89,18 @@ const carsService = {
         usersRate: 8,
       },
     ]);
+  },
+
+  infiniteScroll(lastId: number): Promise<Car[]> {
+    const mockedCars = [];
+    const amountGenerated = 5;
+
+    for (let i = 1; i <= amountGenerated; i++) {
+      const car = new BaseMockCar(lastId + i);
+      mockedCars.push(car);
+    }
+
+    return Promise.resolve([...mockedCars]);
   },
 };
 
