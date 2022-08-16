@@ -1,4 +1,4 @@
-import { FormEvent, ReactNode } from 'react';
+import { ChangeEvent, FormEvent, ReactNode, useRef, useState } from 'react';
 import Input from 'components/Input';
 import Button from 'components/Button';
 import {
@@ -27,9 +27,32 @@ interface Props {
 }
 
 const CarForm = ({ initialValues, children, onSubmit }: Props) => {
+  const imageRef = useRef<HTMLInputElement>(null);
+  const [image, setImage] = useState<{ preview: string; file: Blob | string }>({
+    preview: '',
+    file: '',
+  });
+
+  const onImageChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        file: e.target.files[0],
+      });
+
+      e.target.value = '';
+    }
+  };
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
+    formData.append('image', image.file);
+    formData.append('imageUrl', image.preview); // como nao tem backend, fiz isso pra depois ser possivel resgatar a imagem na edição
+    formData.append(
+      'imageAlt',
+      `${formData.get('name')} ${formData.get('year')}`,
+    ); // para melhorar SEO e acessibilidade
     const fieldValues = Object.fromEntries(
       formData.entries(),
     ) as unknown as FormFields;
@@ -41,12 +64,22 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
       <ContentWrapper>
         <ImagePart>
           <ImagePreview>
-            <img
-              src={initialValues.imageUrl}
-              alt="preview da imagem do carro"
-            />
+            {image.preview && (
+              <img src={image.preview} alt="preview da imagem do carro" />
+            )}
           </ImagePreview>
-          <Button variant="text" marginTop={1}>
+          <input
+            type="file"
+            name="image"
+            ref={imageRef}
+            hidden
+            onChange={onImageChange}
+          />
+          <Button
+            variant="text"
+            marginTop={1}
+            onClick={() => imageRef.current?.click()}
+          >
             Selecionar imagem
           </Button>
         </ImagePart>

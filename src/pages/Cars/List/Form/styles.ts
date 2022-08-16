@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import carPlaceholder from 'assets/add-car-placeholder.png';
 
 export const Form = styled.form`
   display: flex;
@@ -31,4 +32,17 @@ export const DataPart = styled.div`
   gap: 16px;
 `;
 
-export const ImagePreview = styled.div``;
+export const ImagePreview = styled.div`
+  width: 225px;
+  height: 225px;
+  background-color: red;
+  border-radius: 24px;
+  overflow: hidden;
+  background: url(${carPlaceholder});
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
