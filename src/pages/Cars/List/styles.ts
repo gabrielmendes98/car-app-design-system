@@ -4,6 +4,7 @@ export const Section = styled.section`
   max-width: 1052px;
   margin: 0 auto;
   margin-top: ${({ theme }) => theme.spacing(12)};
+  overflow: auto;
 `;
 
 export const Header = styled.div`
