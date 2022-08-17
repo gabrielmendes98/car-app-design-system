@@ -1,4 +1,4 @@
-import { screen, render, within, userEvent } from 'test-utils';
+import { screen, render, waitFor, userEvent } from 'test-utils';
 import carsService from 'api/services/cars';
 import CarsList from '../index';
 
@@ -67,6 +67,20 @@ describe('with api working correctly', () => {
     userEvent.click(screen.getByRole('button', { name: /adicionar novo/i }));
 
     expect(await screen.findByTestId('add-car-modal')).toBeInTheDocument();
+  });
+
+  it('should be able to delete car', async () => {
+    window.confirm = () => true;
+
+    render(<CarsList />);
+
+    expect(await screen.findByText('Mustang')).toBeInTheDocument();
+
+    userEvent.click(screen.getAllByTitle('deletar item')[0]);
+
+    await waitFor(() => {
+      expect(screen.queryByText('Mustang')).not.toBeInTheDocument();
+    });
   });
 });
 
