@@ -88,14 +88,14 @@ const CarsList = () => {
                   }}
                 >
                   <IconButton
-                    title="delete item"
+                    title="deletar item"
                     size={1.25}
                     onClick={() => handleDelete(car.id)}
                   >
                     <Icon icon="akar-icons:trash-can" />
                   </IconButton>
                   <IconButton
-                    title="edit item"
+                    title="editar item"
                     size={1.25}
                     onClick={() =>
                       dispatch(showModal(<UpdateCarForm id={car.id} />))

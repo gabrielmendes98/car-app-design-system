@@ -44,7 +44,7 @@ const UpdateCarForm = ({ id }: Props) => {
   };
 
   return (
-    <Container>
+    <Container id="edit-car-modal">
       <Text variant="h2" marginBottom={3}>
         Editar carro
       </Text>

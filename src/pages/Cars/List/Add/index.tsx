@@ -44,7 +44,7 @@ const AddCarForm = () => {
   };
 
   return (
-    <Container>
+    <Container id="add-car-modal">
       <Text variant="h2" marginBottom={3}>
         Adicionar novo
       </Text>

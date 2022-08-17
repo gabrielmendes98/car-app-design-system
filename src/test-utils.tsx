@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { PreloadedState } from '@reduxjs/toolkit';
 import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from 'common/providers/Theme';
+import Modal from 'components/Modal';
 import { AppStore, RootState, setupStore } from './store';
 
 configure({ testIdAttribute: 'id' });
@@ -46,7 +47,10 @@ const customRender = (
       wrapper={children => <BrowserRouter>{children}</BrowserRouter>}
     >
       <Provider store={store}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Modal />
+          {children}
+        </ThemeProvider>
       </Provider>
     </ConditionalWrapper>
   );
