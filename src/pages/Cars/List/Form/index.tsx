@@ -77,6 +77,7 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
             )}
           </ImagePreview>
           <input
+            id="image-input"
             type="file"
             name="image"
             ref={imageRef}

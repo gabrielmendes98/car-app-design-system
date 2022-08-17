@@ -1,12 +1,6 @@
 import { render, screen, userEvent, waitFor } from 'test-utils';
 import Modal from '../index';
 
-beforeAll(() => {
-  const portalRoot = document.createElement('div');
-  portalRoot.setAttribute('id', 'modal-root');
-  document.body.appendChild(portalRoot);
-});
-
 it('should render modal if modal store is set to visible', () => {
   render(<Modal />, {
     preloadedState: { modal: { visible: true, content: null } },

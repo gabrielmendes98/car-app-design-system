@@ -6,12 +6,6 @@ jest.mock('api/services/cars');
 const mockedCarsService = jest.mocked(carsService);
 
 describe('with api working correctly', () => {
-  beforeAll(() => {
-    const portalRoot = document.createElement('div');
-    portalRoot.setAttribute('id', 'modal-root');
-    document.body.appendChild(portalRoot);
-  });
-
   beforeEach(() => {
     mockedCarsService.list.mockReturnValue(
       Promise.resolve([

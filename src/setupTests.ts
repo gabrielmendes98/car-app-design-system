@@ -10,3 +10,9 @@ jest.mock('@iconify/react', () => ({
   ...jest.requireActual('@iconify/react'),
   Icon: jest.fn(),
 }));
+
+window.URL.createObjectURL = () => 'fake.url.com';
+
+const portalRoot = document.createElement('div');
+portalRoot.setAttribute('id', 'modal-root');
+document.body.appendChild(portalRoot);

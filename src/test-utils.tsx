@@ -57,6 +57,7 @@ const customRender = (
 
   return {
     user: userEvent.setup(),
+    store,
     ...render(ui, { wrapper: Wrapper, ...renderOptions }),
   };
 };

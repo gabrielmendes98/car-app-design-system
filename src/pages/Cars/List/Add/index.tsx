@@ -26,11 +26,9 @@ const AddCarForm = () => {
     // contudo, como fiz sem backend, só adicionei ao store.
     // a action 'addCar' na verdade deveria ser um thunk que iria salvar o argumento formData
 
-    const imageAlt = `${values.name} ${values.year}`; // para melhorar SEO e acessibilidade
     dispatch(
       addCar({
         imageUrl: values.imageUrl,
-        imageAlt,
         name: values.name,
         year: values.year,
         maxSpeed: Number(values.maxSpeed),

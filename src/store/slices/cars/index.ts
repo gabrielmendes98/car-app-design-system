@@ -41,12 +41,15 @@ const carsSlice = createSlice({
   name: 'cars',
   initialState,
   reducers: {
-    addCar: (state, action: PayloadAction<Omit<Car, 'id'>>) => {
+    addCar: (state, action: PayloadAction<Omit<Car, 'id' | 'imageAlt'>>) => {
       const car = action.payload;
-      const nextId = Number(state.ids.at(-1)) + 1;
+      const nextId = (Number(state.ids.at(-1)) || 0) + 1;
+
+      const imageAlt = `${action.payload.name} ${action.payload.year}`; // para melhorar SEO e acessibilidade
 
       carsAdapter.addOne(state, {
         ...car,
+        imageAlt,
         id: nextId,
       });
     },
