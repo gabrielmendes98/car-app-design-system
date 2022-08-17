@@ -14,7 +14,7 @@ export interface FormSubmitFields extends FormFields {
   image: Blob | string;
 }
 
-interface FormFields {
+export interface FormFields {
   imageUrl: string;
   name: string;
   year: string;
@@ -56,7 +56,7 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     formData.append('image', image.file);
-    formData.append('imageUrl', image.preview); // como nao tem backend, fiz isso pra depois ser possivel resgatar a imagem na edição
+    formData.append('imageUrl', image.preview || initialValues.imageUrl); // como nao tem backend, fiz isso pra depois ser possivel resgatar a imagem na edição
 
     const fieldValues = Object.fromEntries(
       formData.entries(),
@@ -69,8 +69,11 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
       <ContentWrapper>
         <ImagePart>
           <ImagePreview>
-            {image.preview && (
-              <img src={image.preview} alt="preview da imagem do carro" />
+            {(image.preview || initialValues.imageUrl) && (
+              <img
+                src={image.preview || initialValues.imageUrl}
+                alt="preview da imagem do carro"
+              />
             )}
           </ImagePreview>
           <input

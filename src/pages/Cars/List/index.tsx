@@ -15,6 +15,7 @@ import {
 import Text from 'components/Text';
 import { Header, Section } from './styles';
 import AddCarForm from './Add';
+import UpdateCarForm from './Update';
 
 const CarsList = () => {
   const cars = useAppSelector(selectAllCars);
@@ -74,7 +75,13 @@ const CarsList = () => {
                   <IconButton title="delete item" size={1.25}>
                     <Icon icon="akar-icons:trash-can" />
                   </IconButton>
-                  <IconButton title="edit item" size={1.25}>
+                  <IconButton
+                    title="edit item"
+                    size={1.25}
+                    onClick={() =>
+                      dispatch(showModal(<UpdateCarForm id={car.id} />))
+                    }
+                  >
                     <Icon icon="clarity:edit-line" />
                   </IconButton>
                 </TableCell>

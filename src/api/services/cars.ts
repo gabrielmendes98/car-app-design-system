@@ -1,3 +1,4 @@
+import mockImage from 'assets/car-11.png';
 import { Car } from 'common/types/car';
 
 const carsService = {
@@ -5,7 +6,7 @@ const carsService = {
     return Promise.resolve([
       {
         id: 1,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'Mustang',
         year: '2015',
@@ -15,7 +16,7 @@ const carsService = {
       },
       {
         id: 2,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'Camaro',
         year: '2015',
@@ -25,7 +26,7 @@ const carsService = {
       },
       {
         id: 3,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'Fusion',
         year: '2015',
@@ -35,7 +36,7 @@ const carsService = {
       },
       {
         id: 4,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: '320i',
         year: '2015',
@@ -45,7 +46,7 @@ const carsService = {
       },
       {
         id: 5,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: '328i',
         year: '2015',
@@ -55,7 +56,7 @@ const carsService = {
       },
       {
         id: 6,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'M3',
         year: '2015',
@@ -65,7 +66,7 @@ const carsService = {
       },
       {
         id: 7,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'Q7',
         year: '2015',
@@ -83,7 +84,7 @@ const carsService = {
     for (let i = 1; i <= amountGenerated; i++) {
       const car = {
         id: lastId + i,
-        imageUrl: '',
+        imageUrl: mockImage,
         imageAlt: '',
         name: 'Mustang',
         year: '2015',
