@@ -90,12 +90,28 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
         </ImagePart>
 
         <DataPart>
-          <Input name="name" label="Nome" />
-          <Input name="year" label="Ano" />
-          <Input name="maxSpeed" label="Velocidade Máxima Km/h" />
-          <Input name="economyRate" label="Nota economia" />
-          <Input name="usersRate" label="Nota usuários" />
-          <Input name="link" label="Link produto" />
+          <Input initialValue={initialValues.name} name="name" label="Nome" />
+          <Input initialValue={initialValues.year} name="year" label="Ano" />
+          <Input
+            initialValue={initialValues.maxSpeed}
+            name="maxSpeed"
+            label="Velocidade Máxima Km/h"
+          />
+          <Input
+            initialValue={initialValues.economyRate}
+            name="economyRate"
+            label="Nota economia"
+          />
+          <Input
+            initialValue={initialValues.usersRate}
+            name="usersRate"
+            label="Nota usuários"
+          />
+          <Input
+            initialValue={initialValues.link}
+            name="link"
+            label="Link produto"
+          />
         </DataPart>
       </ContentWrapper>
 

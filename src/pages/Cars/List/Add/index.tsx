@@ -23,8 +23,8 @@ const AddCarForm = () => {
 
   const handleSubmit = (values: FormSubmitFields, formData: FormData) => {
     // o correto seria enviar para um backend com o header 'Content-Type': 'multipart/form-data'
-    // contudo, como fiz sem backend, só adicionei ao store
-    // carsApi.addCar(formData).then(dispatch car and toast and hide modal)
+    // contudo, como fiz sem backend, só adicionei ao store.
+    // a action 'addCar' na verdade deveria ser um thunk que iria salvar o argumento formData
 
     const imageAlt = `${values.name} ${values.year}`; // para melhorar SEO e acessibilidade
     dispatch(
