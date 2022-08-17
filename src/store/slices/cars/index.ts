@@ -51,6 +51,7 @@ const carsSlice = createSlice({
       });
     },
     updateCar: carsAdapter.updateOne,
+    deleteCar: carsAdapter.removeOne,
   },
   extraReducers: builder => {
     builder
@@ -77,7 +78,7 @@ const carsSlice = createSlice({
   },
 });
 
-export const { addCar, updateCar } = carsSlice.actions;
+export const { addCar, updateCar, deleteCar } = carsSlice.actions;
 
 export const { selectAll: selectAllCars, selectById: selectCarById } =
   carsAdapter.getSelectors<RootState>(state => state.cars);

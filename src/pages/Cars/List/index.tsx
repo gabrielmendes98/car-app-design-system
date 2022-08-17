@@ -1,8 +1,14 @@
 import { Icon } from '@iconify/react';
 import { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
+import toast from 'common/utils/toast';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { listFirstCars, listMoreCars, selectAllCars } from 'store/slices/cars';
+import {
+  deleteCar,
+  listFirstCars,
+  listMoreCars,
+  selectAllCars,
+} from 'store/slices/cars';
 import { showModal } from 'store/slices/modal';
 import Button, { IconButton } from 'components/Button';
 import {
@@ -20,6 +26,15 @@ import UpdateCarForm from './Update';
 const CarsList = () => {
   const cars = useAppSelector(selectAllCars);
   const dispatch = useAppDispatch();
+
+  const handleDelete = (id: number) => {
+    const confirmed = confirm('Tem certeza que deseja deletar esse veículo?');
+
+    if (confirmed) {
+      dispatch(deleteCar(id));
+      toast.success('Carro deletado com sucesso');
+    }
+  };
 
   useEffect(() => {
     dispatch(listFirstCars());
@@ -72,7 +87,11 @@ const CarsList = () => {
                     justifyContent: 'space-around',
                   }}
                 >
-                  <IconButton title="delete item" size={1.25}>
+                  <IconButton
+                    title="delete item"
+                    size={1.25}
+                    onClick={() => handleDelete(car.id)}
+                  >
                     <Icon icon="akar-icons:trash-can" />
                   </IconButton>
                   <IconButton
