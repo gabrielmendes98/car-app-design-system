@@ -10,7 +10,7 @@ import {
   selectModalContent,
 } from 'store/slices/modal';
 import { IconButton } from 'components/Button';
-import { ButtonContainer, Container, Wrapper } from './styles';
+import { ButtonContainer, Container, ContentWrapper, Wrapper } from './styles';
 
 const Modal = () => {
   const ref = useRef(null);
@@ -39,7 +39,7 @@ const Modal = () => {
             </IconButton>
           </ButtonContainer>
 
-          {content}
+          <ContentWrapper>{content}</ContentWrapper>
         </Container>
       </Wrapper>,
       document.getElementById('modal-root')!,
