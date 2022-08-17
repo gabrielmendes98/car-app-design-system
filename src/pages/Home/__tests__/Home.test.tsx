@@ -1,4 +1,4 @@
-import { render, screen, userEvent, waitFor, within } from 'test-utils';
+import { render, screen, userEvent, waitFor } from 'test-utils';
 import carsService from 'api/services/cars';
 import Home from '../index';
 
