@@ -36,6 +36,7 @@ const AddCarForm = () => {
         maxSpeed: Number(values.maxSpeed),
         economyRate: Number(values.economyRate),
         usersRate: Number(values.usersRate),
+        link: values.link,
       }),
     );
     toast.success('Carro adicionado com sucesso');

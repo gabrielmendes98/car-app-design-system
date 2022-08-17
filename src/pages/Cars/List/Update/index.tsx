@@ -35,6 +35,7 @@ const UpdateCarForm = ({ id }: Props) => {
           maxSpeed: Number(values.maxSpeed),
           economyRate: Number(values.economyRate),
           usersRate: Number(values.usersRate),
+          link: values.link,
         },
       }),
     );
