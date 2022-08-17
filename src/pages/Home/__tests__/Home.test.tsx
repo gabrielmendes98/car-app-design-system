@@ -18,6 +18,7 @@ describe('with api working correctly', () => {
           maxSpeed: 180,
           economyRate: 9,
           usersRate: 8,
+          link: 'fake.link.com',
         },
         {
           id: 2,
@@ -28,6 +29,7 @@ describe('with api working correctly', () => {
           maxSpeed: 180,
           economyRate: 9,
           usersRate: 8,
+          link: 'fake.link.com',
         },
         {
           id: 3,
@@ -38,6 +40,7 @@ describe('with api working correctly', () => {
           maxSpeed: 180,
           economyRate: 9,
           usersRate: 8,
+          link: 'fake.link.com',
         },
       ]),
     );

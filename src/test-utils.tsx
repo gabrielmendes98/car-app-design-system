@@ -25,6 +25,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
   store?: AppStore;
   route?: string;
   renderWithRouter?: boolean;
+  renderWithModal?: boolean;
 }
 
 const customRender = (
@@ -34,6 +35,7 @@ const customRender = (
     store = setupStore(preloadedState),
     renderWithRouter = false,
     route = '/',
+    renderWithModal = true,
     ...renderOptions
   }: ExtendedRenderOptions = {},
 ) => {
@@ -48,7 +50,7 @@ const customRender = (
     >
       <Provider store={store}>
         <ThemeProvider>
-          <Modal />
+          {renderWithModal && <Modal />}
           {children}
         </ThemeProvider>
       </Provider>

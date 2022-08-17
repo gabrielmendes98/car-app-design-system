@@ -7,5 +7,5 @@ export interface Car {
   maxSpeed: number;
   economyRate: number;
   usersRate: number;
-  link?: string;
+  link: string;
 }

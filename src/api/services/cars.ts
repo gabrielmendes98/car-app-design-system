@@ -13,6 +13,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 2,
@@ -23,6 +24,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 3,
@@ -33,6 +35,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 4,
@@ -43,6 +46,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 5,
@@ -53,6 +57,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 6,
@@ -63,6 +68,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
       {
         id: 7,
@@ -73,6 +79,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       },
     ]);
   },
@@ -91,6 +98,7 @@ const carsService = {
         maxSpeed: 180,
         economyRate: 9,
         usersRate: 8,
+        link: 'fake.link.com',
       };
       mockedCars.push(car);
     }
