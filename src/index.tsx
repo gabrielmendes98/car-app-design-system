@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { store } from 'store';
 import ThemeProvider from 'common/providers/Theme';
 import App from './App';
-import '@fontsource/montserrat';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

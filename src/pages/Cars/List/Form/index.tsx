@@ -10,6 +10,10 @@ import {
   ActionsWrapper,
 } from './styles';
 
+export interface FormSubmitFields extends FormFields {
+  image: Blob | string;
+}
+
 interface FormFields {
   imageUrl: string;
   name: string;
@@ -23,7 +27,11 @@ interface FormFields {
 interface Props {
   initialValues: FormFields;
   children: ReactNode;
-  onSubmit: (values: FormFields, e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit: (
+    values: FormSubmitFields,
+    formData: FormData,
+    e: React.FormEvent<HTMLFormElement>,
+  ) => void;
 }
 
 const CarForm = ({ initialValues, children, onSubmit }: Props) => {
@@ -49,14 +57,11 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
     const formData = new FormData(e.currentTarget);
     formData.append('image', image.file);
     formData.append('imageUrl', image.preview); // como nao tem backend, fiz isso pra depois ser possivel resgatar a imagem na edição
-    formData.append(
-      'imageAlt',
-      `${formData.get('name')} ${formData.get('year')}`,
-    ); // para melhorar SEO e acessibilidade
+
     const fieldValues = Object.fromEntries(
       formData.entries(),
-    ) as unknown as FormFields;
-    onSubmit(fieldValues, e);
+    ) as unknown as FormSubmitFields;
+    onSubmit(fieldValues, formData, e);
   };
 
   return (

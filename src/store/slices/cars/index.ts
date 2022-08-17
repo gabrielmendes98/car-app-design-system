@@ -2,6 +2,7 @@ import {
   createAsyncThunk,
   createEntityAdapter,
   createSlice,
+  PayloadAction,
 } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 import carsService from 'api/services/cars';
@@ -39,7 +40,17 @@ export const listMoreCars = createAsyncThunk(
 const carsSlice = createSlice({
   name: 'cars',
   initialState,
-  reducers: {},
+  reducers: {
+    addCar: (state, action: PayloadAction<Omit<Car, 'id'>>) => {
+      const car = action.payload;
+      const nextId = Number(state.ids.at(-1)) + 1;
+
+      carsAdapter.addOne(state, {
+        ...car,
+        id: nextId,
+      });
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(listFirstCars.pending, state => {
@@ -64,6 +75,8 @@ const carsSlice = createSlice({
       });
   },
 });
+
+export const { addCar } = carsSlice.actions;
 
 export const { selectAll: selectAllCars } = carsAdapter.getSelectors<RootState>(
   state => state.cars,
