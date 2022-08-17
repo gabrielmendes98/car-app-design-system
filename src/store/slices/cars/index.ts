@@ -3,6 +3,7 @@ import {
   createEntityAdapter,
   createSlice,
   PayloadAction,
+  Update,
 } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 import carsService from 'api/services/cars';
@@ -53,7 +54,17 @@ const carsSlice = createSlice({
         id: nextId,
       });
     },
-    updateCar: carsAdapter.updateOne,
+    updateCar: (state, action: PayloadAction<Update<Car>>) => {
+      const imageAlt = `${action.payload.changes.name} ${action.payload.changes.year}`; // para melhorar SEO e acessibilidade
+
+      carsAdapter.updateOne(state, {
+        id: action.payload.id,
+        changes: {
+          ...action.payload.changes,
+          imageAlt,
+        },
+      });
+    },
     deleteCar: carsAdapter.removeOne,
   },
   extraReducers: builder => {

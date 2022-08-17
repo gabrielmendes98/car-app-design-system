@@ -16,6 +16,8 @@ const UpdateCarForm = ({ id }: Props) => {
   const dispatch = useAppDispatch();
   const car = useAppSelector(state => selectCarById(state, id));
 
+  console.log(car);
+
   const initialValues = prepareCarToInitialValues(car!);
 
   const handleSubmit = (values: FormSubmitFields, formData: FormData) => {
@@ -23,13 +25,11 @@ const UpdateCarForm = ({ id }: Props) => {
     // contudo, como fiz sem backend, só adicionei ao store.
     // a action 'updateCar' na verdade deveria ser um thunk que iria salvar o argumento formData
 
-    const imageAlt = `${values.name} ${values.year}`; // para melhorar SEO e acessibilidade
     dispatch(
       updateCar({
         id,
         changes: {
           imageUrl: values.imageUrl,
-          imageAlt,
           name: values.name,
           year: values.year,
           maxSpeed: Number(values.maxSpeed),
