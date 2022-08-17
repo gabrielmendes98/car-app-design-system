@@ -69,11 +69,3 @@ export const MobileHeader = styled.div(
     }
   `,
 );
-
-export const Button = styled.button(
-  ({ theme }) => css`
-    all: unset;
-    color: ${theme.palette.common.white};
-    font-size: 2.625rem;
-  `,
-);

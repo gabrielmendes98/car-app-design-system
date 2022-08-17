@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import Logo from 'components/Logo';
 import Menu from 'components/Menu';
+import { IconButton } from 'components/Button';
 import {
   HeaderBase,
   Navigation,
@@ -10,7 +11,6 @@ import {
   Item,
   DesktopHeader,
   MobileHeader,
-  Button,
 } from './styles';
 
 const Header = () => {
@@ -48,9 +48,14 @@ const Header = () => {
       </DesktopHeader>
 
       <MobileHeader>
-        <Button onClick={toggleMenu}>
+        <IconButton
+          title="abrir menu"
+          color="white"
+          size={2.5}
+          onClick={toggleMenu}
+        >
           <Icon icon="ant-design:menu-outlined" />
-        </Button>
+        </IconButton>
         <Menu open={menuOpen} handleClose={() => setMenuOpen(false)} />
       </MobileHeader>
     </HeaderBase>
