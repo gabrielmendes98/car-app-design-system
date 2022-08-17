@@ -5,26 +5,28 @@ afterEach(() => {
   window.URL.createObjectURL = () => 'fake.url.com';
 });
 
+const initialCarsState = {
+  ids: [1],
+  entities: {
+    '1': {
+      name: 'nome',
+      year: 'ano',
+      link: 'www.google.com',
+      imageUrl: 'fake.url.com',
+      imageAlt: 'nome ano',
+      id: 1,
+      maxSpeed: 180,
+      economyRate: 10,
+      usersRate: 10,
+    },
+  },
+  status: 'idle' as const,
+};
+
 it('should populate fields with correct car by its id', () => {
   render(<UpdateCarForm id={1} />, {
     preloadedState: {
-      cars: {
-        ids: [1],
-        entities: {
-          '1': {
-            name: 'nome',
-            year: 'ano',
-            link: 'www.google.com',
-            imageUrl: 'fake.url.com',
-            imageAlt: 'nome ano',
-            id: 1,
-            maxSpeed: 180,
-            economyRate: 10,
-            usersRate: 10,
-          },
-        },
-        status: 'idle',
-      },
+      cars: initialCarsState,
     },
   });
 
@@ -57,23 +59,7 @@ it('should be able to edit selected car', async () => {
 
   const { store } = render(<UpdateCarForm id={1} />, {
     preloadedState: {
-      cars: {
-        ids: [1],
-        entities: {
-          '1': {
-            name: 'nome',
-            year: 'ano',
-            link: 'www.google.com',
-            imageUrl: 'fake.url.com',
-            imageAlt: 'nome ano',
-            id: 1,
-            maxSpeed: 180,
-            economyRate: 10,
-            usersRate: 10,
-          },
-        },
-        status: 'idle',
-      },
+      cars: initialCarsState,
     },
   });
 
@@ -122,23 +108,7 @@ it('should hide modal when click on cancel', async () => {
   const { store } = render(<UpdateCarForm id={1} />, {
     preloadedState: {
       modal: { visible: true, content: null },
-      cars: {
-        ids: [1],
-        entities: {
-          '1': {
-            name: 'nome',
-            year: 'ano',
-            link: 'www.google.com',
-            imageUrl: 'fake.url.com',
-            imageAlt: 'nome ano',
-            id: 1,
-            maxSpeed: 180,
-            economyRate: 10,
-            usersRate: 10,
-          },
-        },
-        status: 'idle',
-      },
+      cars: initialCarsState,
     },
   });
 
