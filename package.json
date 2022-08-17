@@ -1,7 +1,8 @@
 {
-  "name": "base-react-project",
+  "name": "desafio-cyber-genios",
   "version": "0.1.0",
   "private": true,
+  "author": "gabrielmssantiago@gmail.com",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
