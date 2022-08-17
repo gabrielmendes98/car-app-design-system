@@ -5,6 +5,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme.typography.fontFamily};
     font-size: ${({ theme }) => theme.typography.htmlFontSize};
     font-weight: normal;
+    overflow: overlay;
   }
 
   html,
