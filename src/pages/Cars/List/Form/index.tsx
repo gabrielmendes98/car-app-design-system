@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, ReactNode, useRef, useState } from 'react';
 import Input from 'components/Input';
 import Button from 'components/Button';
+import Text from 'components/Text';
 import {
   DataPart,
   Form,
@@ -9,6 +10,7 @@ import {
   ContentWrapper,
   ActionsWrapper,
 } from './styles';
+import { validations } from './utils';
 
 export interface FormSubmitFields extends FormFields {
   image: Blob | string;
@@ -35,6 +37,7 @@ interface Props {
 }
 
 const CarForm = ({ initialValues, children, onSubmit }: Props) => {
+  const [valid, setValid] = useState(true);
   const imageRef = useRef<HTMLInputElement>(null);
   const [image, setImage] = useState<{ preview: string; file: Blob | string }>({
     preview: '',
@@ -52,7 +55,7 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
     }
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     formData.append('image', image.file);
@@ -61,6 +64,14 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
     const fieldValues = Object.fromEntries(
       formData.entries(),
     ) as unknown as FormSubmitFields;
+
+    const isValid = await validations.isValid(fieldValues);
+
+    if (!isValid) {
+      setValid(false);
+      return;
+    }
+
     onSubmit(fieldValues, formData, e);
   };
 
@@ -95,21 +106,29 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
 
         <DataPart>
           <Input initialValue={initialValues.name} name="name" label="Nome" />
-          <Input initialValue={initialValues.year} name="year" label="Ano" />
+          <Input
+            initialValue={initialValues.year}
+            name="year"
+            label="Ano"
+            type="number"
+          />
           <Input
             initialValue={initialValues.maxSpeed}
             name="maxSpeed"
             label="Velocidade Máxima Km/h"
+            type="number"
           />
           <Input
             initialValue={initialValues.economyRate}
             name="economyRate"
             label="Nota economia"
+            type="number"
           />
           <Input
             initialValue={initialValues.usersRate}
             name="usersRate"
             label="Nota usuários"
+            type="number"
           />
           <Input
             initialValue={initialValues.link}
@@ -118,6 +137,12 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
           />
         </DataPart>
       </ContentWrapper>
+
+      {!valid && (
+        <Text textAlign="end" marginTop={2} color="red">
+          Formulário inválido!
+        </Text>
+      )}
 
       <ActionsWrapper>{children}</ActionsWrapper>
     </Form>
