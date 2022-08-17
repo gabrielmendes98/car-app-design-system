@@ -27,11 +27,11 @@ const Modal = () => {
 
   if (visible) {
     return createPortal(
-      <Wrapper>
-        <Container ref={ref}>
+      <Wrapper id="modal-container">
+        <Container ref={ref} role="dialog" aria-modal="true">
           <ButtonContainer>
             <IconButton
-              title="close modal"
+              title="fechar modal"
               onClick={() => dispatch(hideModal())}
               size={1.3125}
             >
