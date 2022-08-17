@@ -32,6 +32,11 @@ it('should be able to add a car', async () => {
   await userEvent.type(screen.getByLabelText(/link produto/i), mockData.link);
   await userEvent.upload(screen.getByTestId('image-input'), file);
 
+  expect(screen.getByAltText('preview da imagem do carro')).toHaveAttribute(
+    'src',
+    'fake.url.com',
+  );
+
   userEvent.click(screen.getByRole('button', { name: /adicionar novo/i }));
 
   await waitFor(() => {
