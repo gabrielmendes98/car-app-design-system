@@ -25,3 +25,19 @@ it('should render children', () => {
   );
   expect(screen.getByText('fake children')).toBeInTheDocument();
 });
+
+it('should be able to change type to submit', () => {
+  render(<Button type="submit">submit</Button>);
+  expect(screen.getByRole('button', { name: 'submit' })).toHaveAttribute(
+    'type',
+    'submit',
+  );
+});
+
+it('should be able to change type to button', () => {
+  render(<Button type="button">button</Button>);
+  expect(screen.getByRole('button', { name: 'button' })).toHaveAttribute(
+    'type',
+    'button',
+  );
+});
