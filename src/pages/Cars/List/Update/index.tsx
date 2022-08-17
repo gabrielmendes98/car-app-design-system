@@ -16,8 +16,6 @@ const UpdateCarForm = ({ id }: Props) => {
   const dispatch = useAppDispatch();
   const car = useAppSelector(state => selectCarById(state, id));
 
-  console.log(car);
-
   const initialValues = prepareCarToInitialValues(car!);
 
   const handleSubmit = (values: FormSubmitFields, formData: FormData) => {
