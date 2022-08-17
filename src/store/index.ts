@@ -5,12 +5,10 @@ import {
   combineReducers,
   PreloadedState,
 } from '@reduxjs/toolkit';
-import counterReducer from './slices/counter';
 import carsReducer from './slices/cars';
 import modalReducer from './slices/modal';
 
 const rootReducer = combineReducers({
-  counter: counterReducer,
   cars: carsReducer,
   modal: modalReducer,
 });
