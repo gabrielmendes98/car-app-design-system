@@ -7,13 +7,13 @@ export interface BaseInputProps extends ComponentPropsWithoutRef<'input'> {
   name: string;
 }
 
-const BaseInput = ({ label, name, ...props }: BaseInputProps) => (
+const BaseInput = ({ label, name, id, ...props }: BaseInputProps) => (
   <Container>
     <Text variant="label" htmlFor={name} color="inherit">
       {label}
     </Text>
     <InputWrapper>
-      <Input name={name} id={name} {...props} />
+      <Input name={name} id={id || name} {...props} />
     </InputWrapper>
   </Container>
 );
