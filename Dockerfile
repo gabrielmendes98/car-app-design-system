@@ -1,15 +1,12 @@
-FROM node:16-alpine
-
+FROM node:16-alpine as builder
 WORKDIR /app
-
-COPY package.json .
-COPY yarn.lock .
-
+COPY package*.json ./
+COPY yarn.lock ./
 RUN yarn
-
 COPY . .
+RUN yarn build
 
-EXPOSE 3000
-# required for docker desktop port mapping
-
-CMD ["yarn", "start"]
+FROM nginx:1.19-alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
