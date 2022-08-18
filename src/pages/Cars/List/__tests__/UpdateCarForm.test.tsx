@@ -10,10 +10,10 @@ const initialCarsState = {
   entities: {
     '1': {
       name: 'nome',
-      year: 'ano',
+      year: '2015',
       link: 'www.google.com',
       imageUrl: 'fake.url.com',
-      imageAlt: 'nome ano',
+      imageAlt: 'nome 2015',
       id: 1,
       maxSpeed: 180,
       economyRate: 10,
@@ -31,10 +31,10 @@ it('should populate fields with correct car by its id', () => {
   });
 
   expect(screen.getByLabelText(/nome/i)).toHaveValue('nome');
-  expect(screen.getByLabelText(/ano/i)).toHaveValue('ano');
-  expect(screen.getByLabelText(/velocidade máxima km\/h/i)).toHaveValue('180');
-  expect(screen.getByLabelText(/nota economia/i)).toHaveValue('10');
-  expect(screen.getByLabelText(/nota usuários/i)).toHaveValue('10');
+  expect(screen.getByLabelText(/ano/i)).toHaveValue('2015');
+  expect(screen.getByLabelText(/velocidade máxima km\/h/i)).toHaveValue(180);
+  expect(screen.getByLabelText(/nota economia/i)).toHaveValue(10);
+  expect(screen.getByLabelText(/nota usuários/i)).toHaveValue(10);
   expect(screen.getByLabelText(/link produto/i)).toHaveValue('www.google.com');
   expect(screen.getByAltText('preview da imagem do carro')).toHaveAttribute(
     'src',

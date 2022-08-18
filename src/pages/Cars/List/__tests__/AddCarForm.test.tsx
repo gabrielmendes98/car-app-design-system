@@ -3,7 +3,7 @@ import AddCarForm from '../Add';
 
 const mockData = {
   name: 'nome',
-  year: 'ano',
+  year: '2015',
   maxSpeed: '180',
   economyRate: '10',
   usersRate: '10',
@@ -43,7 +43,7 @@ it('should be able to add a car', async () => {
     expect(store.getState().cars.entities['1']).toMatchObject({
       ...mockData,
       imageUrl: 'fake.url.com',
-      imageAlt: 'nome ano',
+      imageAlt: 'nome 2015',
       id: 1,
       maxSpeed: 180,
       economyRate: 10,

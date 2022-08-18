@@ -105,12 +105,7 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
 
         <DataPart>
           <Input initialValue={initialValues.name} name="name" label="Nome" />
-          <Input
-            initialValue={initialValues.year}
-            name="year"
-            label="Ano"
-            type="number"
-          />
+          <Input initialValue={initialValues.year} name="year" label="Ano" />
           <Input
             initialValue={initialValues.maxSpeed}
             name="maxSpeed"

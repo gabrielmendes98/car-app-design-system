@@ -5,12 +5,8 @@ import * as yup from 'yup';
 export const validations = yup.object().shape({
   name: yup.string().trim().required(),
   year: yup
-    .number()
-    .test(
-      'len',
-      'Um ano deve ter 4 digitos',
-      val => val!.toString().length === 4,
-    ),
+    .string()
+    .test('len', 'Um ano deve ter 4 digitos', val => val!.length === 4),
   maxSpeed: yup.number().required(),
   economyRate: yup
     .number()
