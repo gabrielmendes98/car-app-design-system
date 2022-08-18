@@ -16,3 +16,6 @@ window.URL.createObjectURL = () => 'fake.url.com';
 const portalRoot = document.createElement('div');
 portalRoot.setAttribute('id', 'modal-root');
 document.body.appendChild(portalRoot);
+
+// @ts-ignore
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;

@@ -71,7 +71,6 @@ const CarForm = ({ initialValues, children, onSubmit }: Props) => {
       setValid(false);
       return;
     }
-
     onSubmit(fieldValues, formData, e);
   };
 
