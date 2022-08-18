@@ -1,5 +1,9 @@
 # Desafio Cyber Gênios
 
+## Live demo no S3 + CloudFront
+
+https://d66iafpk56f75.cloudfront.net
+
 ## Para desenvolvimento local
 
 1. `yarn`
@@ -12,4 +16,11 @@
 
 <hr/>
 
-O container docker foi criado para caso fosse fazer o deploy no heroku ou no ECS, contudo, como fiz o deploy usando S3 + CloudFront, deixei esses arquivos só como exemplo.
+O container docker foi criado para caso fosse fazer o deploy no heroku ou no
+ECS, contudo, como fiz o deploy usando S3 + CloudFront, deixei esses arquivos só
+como exemplo.
+
+<hr/>
+
+Estou usando github actions para fazer o deploy na aws toda vez que fizermos um
+push para a master.
