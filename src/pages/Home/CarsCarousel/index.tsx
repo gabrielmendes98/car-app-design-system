@@ -72,6 +72,8 @@ const CarsCarousel = ({ cars }: Props) => {
         {cars.map(car => (
           <li key={car.id}>
             <CarInfoCard
+              imageUrl={car.imageUrl}
+              imageAlt={car.imageAlt}
               id={car.id}
               name={car.name}
               year={car.year}

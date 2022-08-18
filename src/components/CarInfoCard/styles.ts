@@ -11,9 +11,9 @@ export const Container = styled.div`
 
 export const Image = styled.div(
   ({ theme }) => css`
-    max-width: ${theme.spacing(35.125)};
+    max-width: ${theme.spacing(35)};
     position: relative;
-    top: 32px;
+    top: 24px;
 
     img {
       width: ${theme.spacing(33)};

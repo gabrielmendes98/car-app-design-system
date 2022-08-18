@@ -6,8 +6,8 @@ import { Container, Image, InfoCard, ResumeList, ResumeItem } from './styles';
 
 export interface CarInfoCardProps {
   id: number;
-  imageUrl?: string;
-  imageAlt?: string;
+  imageUrl: string;
+  imageAlt: string;
   name: string;
   year: string;
   maxSpeed: number;

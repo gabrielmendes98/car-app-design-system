@@ -1,4 +1,4 @@
-import mockImage from 'assets/car-11.png';
+import mockImage from 'assets/car-21.png';
 import { Car } from 'common/types/car';
 
 const carsService = {
@@ -7,7 +7,7 @@ const carsService = {
       {
         id: 1,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'Mustang 2015',
         name: 'Mustang',
         year: '2015',
         maxSpeed: 180,
@@ -18,7 +18,7 @@ const carsService = {
       {
         id: 2,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'Camaro 2015',
         name: 'Camaro',
         year: '2015',
         maxSpeed: 180,
@@ -29,7 +29,7 @@ const carsService = {
       {
         id: 3,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'Fusion 2015',
         name: 'Fusion',
         year: '2015',
         maxSpeed: 180,
@@ -40,7 +40,7 @@ const carsService = {
       {
         id: 4,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: '320i 2015',
         name: '320i',
         year: '2015',
         maxSpeed: 180,
@@ -51,7 +51,7 @@ const carsService = {
       {
         id: 5,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: '328i 2015',
         name: '328i',
         year: '2015',
         maxSpeed: 180,
@@ -62,7 +62,7 @@ const carsService = {
       {
         id: 6,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'M3 2015',
         name: 'M3',
         year: '2015',
         maxSpeed: 180,
@@ -73,7 +73,7 @@ const carsService = {
       {
         id: 7,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'Q7 2015',
         name: 'Q7',
         year: '2015',
         maxSpeed: 180,
@@ -92,7 +92,7 @@ const carsService = {
       const car = {
         id: lastId + i,
         imageUrl: mockImage,
-        imageAlt: '',
+        imageAlt: 'Mustang 2015',
         name: 'Mustang',
         year: '2015',
         maxSpeed: 180,
