@@ -7,12 +7,16 @@ https://d66iafpk56f75.cloudfront.net
 ## Para desenvolvimento local
 
 1. `yarn`
-
 2. `yarn start`
 
 ## Para rodar local sem hot reload
 
 `docker-compose up --build`
+
+## Para rodar os testes
+
+1. `yarn`
+2. `yarn test`
 
 <hr/>
 

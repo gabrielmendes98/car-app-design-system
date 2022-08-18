@@ -28,8 +28,9 @@ const Home = () => {
           <img src={BannerImage} alt="Mustang banner" />
         </picture>
       </Banner>
-      test ci;cd
+
       <CarsCarousel cars={cars} />
+
       <FooterBanner />
     </section>
   );
