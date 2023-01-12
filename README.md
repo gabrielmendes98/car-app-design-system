@@ -1,4 +1,6 @@
-# Desafio Cyber Gênios
+# Carr app design system
+
+Projeto criado com o intuito de implementar um design system de um app de carros.
 
 ## Live demo no S3 + CloudFront
 
