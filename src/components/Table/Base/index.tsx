@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, memo, ReactNode } from 'react';
 import { TableContainer } from './styles';
 
 interface Props extends ComponentPropsWithoutRef<'table'> {
@@ -9,4 +9,4 @@ const Table = ({ children, ...props }: Props) => (
   <TableContainer {...props}>{children}</TableContainer>
 );
 
-export default Table;
+export default memo(Table);

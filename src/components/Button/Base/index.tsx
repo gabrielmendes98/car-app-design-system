@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Button, StartIcon, ButtonProps } from './styles';
 
 interface Props extends Partial<ButtonProps> {
@@ -47,4 +47,4 @@ const BaseButton = ({
   );
 };
 
-export default BaseButton;
+export default memo(BaseButton);

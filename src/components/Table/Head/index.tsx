@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { TableHeadContainer, TableHeadContainerProps } from './styles';
 
 interface Props extends Partial<TableHeadContainerProps> {
@@ -11,4 +11,4 @@ const TableHead = ({ children, sticky = false, ...props }: Props) => (
   </TableHeadContainer>
 );
 
-export default TableHead;
+export default memo(TableHead);

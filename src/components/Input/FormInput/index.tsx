@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, memo, useState } from 'react';
 import BaseInput, { BaseInputProps } from '../Base';
 
 interface Props extends BaseInputProps {
@@ -18,4 +18,4 @@ const FormInput = ({ onChange, initialValue = '', ...props }: Props) => {
   return <BaseInput onChange={onValueChange} value={value} {...props} />;
 };
 
-export default FormInput;
+export default memo(FormInput);

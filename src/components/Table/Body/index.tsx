@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { TableBodyContainer } from './styles';
 
 interface Props {
@@ -9,4 +9,4 @@ const TableBody = ({ children }: Props) => (
   <TableBodyContainer>{children}</TableBodyContainer>
 );
 
-export default TableBody;
+export default memo(TableBody);

@@ -1,5 +1,6 @@
 import { Icon } from '@iconify/react';
 import { Link } from 'react-router-dom';
+import { memo } from 'react';
 import Button from 'components/Button';
 import Text from 'components/Text';
 import { Container, Image, InfoCard, ResumeList, ResumeItem } from './styles';
@@ -65,4 +66,4 @@ const CarInfoCard = ({
   </Container>
 );
 
-export default CarInfoCard;
+export default memo(CarInfoCard);

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { ComponentPropsWithoutRef, memo, ReactNode } from 'react';
 import { TableCellContainer } from './styles';
 
 interface Props extends ComponentPropsWithoutRef<'th'> {
@@ -17,4 +17,4 @@ const TableCell = ({
   </TableCellContainer>
 );
 
-export default TableCell;
+export default memo(TableCell);

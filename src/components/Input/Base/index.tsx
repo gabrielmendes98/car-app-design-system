@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, memo } from 'react';
 import Text from 'components/Text';
 import { Container, Input, InputWrapper } from './styles';
 
@@ -18,4 +18,4 @@ const BaseInput = ({ label, name, id, ...props }: BaseInputProps) => (
   </Container>
 );
 
-export default BaseInput;
+export default memo(BaseInput);

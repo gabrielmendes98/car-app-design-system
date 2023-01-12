@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { colorMapper } from 'common/styles/utils';
 
 interface Props {
@@ -21,4 +22,4 @@ const Logo = ({ color = 'primary' }: Props) => (
   </div>
 );
 
-export default Logo;
+export default memo(Logo);

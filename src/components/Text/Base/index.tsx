@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Typography, TypographyProps } from './styles';
 
 interface Props extends Partial<Omit<TypographyProps, 'as'>> {
@@ -40,4 +40,4 @@ const BaseText = ({
   </Typography>
 );
 
-export default BaseText;
+export default memo(BaseText);
