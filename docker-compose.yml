@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   app:
-    container_name: cyber-genios-app
+    container_name: car-app-design-system
     build:
       context: .
       dockerfile: Dockerfile
