@@ -1,45 +1,47 @@
 # Carr app design system
 
-Projeto criado com o intuito de implementar um design system de um app de carros.
+Project created with the intention of implementing a design system for a car app.
 
-## Live demo no S3 + CloudFront
+## Live demo in S3 + CloudFront CDN
 
 https://d66iafpk56f75.cloudfront.net
 
-## Para desenvolvimento local
+## For local development
 
 1. `yarn`
 2. `yarn start`
 
-## Para rodar local sem hot reload
+## For local development without hot reload
 
 `docker-compose up --build`
 
-## Para rodar os testes
+## For running the tests
 
 1. `yarn`
 2. `yarn test`
 
-## Estrutura do projeto
+## Project structure
 
-- api: todos os recursos referentes à comunicação com apis externas
-- assets: imagens, svgs, etc
-- common: recursos utilitários comuns à aplicação
-- components: dumb components ou componentes visuais comuns à aplicação
-- pages: paginas e componentes associados a elas
-- routes: toda a parte de roteamento da aplicação e recursos associados a isso
-- store: arquivos que fazem parte do store global da aplicação
-- test-utils: reexport de utilidades para testes
-- templates: geralmente crio para colocar smart components comuns à aplicação,
-  mas nesse caso não foi preciso.
-
-<hr/>
-
-O container docker foi criado para caso fosse fazer o deploy no heroku ou no
-ECS, contudo, como fiz o deploy usando S3 + CloudFront, deixei esses arquivos só
-como exemplo.
+- api: all resources related to communication with external apis
+- assets: images, svgs, etc
+- common: common utilities for the application
+- components: dumb components or common visual components for the application
+- pages: pages and components associated with them
+- routes: all the routing part of the application and resources associated with it
+- store: files that make part of the global application store
+- test-utils: reexport of utilities for tests
+- templates: I usually create them to put common smart components in the application,
+  but in this case it was not necessary.
 
 <hr/>
 
-Estou usando github actions para fazer o deploy na aws toda vez que fizermos um
-push para a master.
+The docker container was created in case it was necessary to deploy on heroku or
+ECS, however, since I deployed using S3 + CloudFront, I left these files just as
+an example.
+
+<hr/>
+
+I'm using github actions to deploy on aws every time we make a push to the master
+branch.
+
+![Deployed on AWS](./assets/solution-architecture.excalidrawpng)
