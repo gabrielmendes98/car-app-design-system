@@ -44,4 +44,4 @@ an example.
 I'm using github actions to deploy on aws every time we make a push to the master
 branch.
 
-![Deployed on AWS](./assets/solution-architecture.excalidrawpng)
+![Deployed on AWS](./assets/solution-architecture.excalidraw.png)
